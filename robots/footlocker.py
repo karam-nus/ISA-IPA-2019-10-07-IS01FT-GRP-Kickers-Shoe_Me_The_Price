@@ -5,14 +5,51 @@
 
 import tagui as t
 
-shoe = input("Enter shoe name : ")
-t.init(visual_automation = True)
-t.url('https://www.footlocker.sg/en/homepage')
-t.type('//input[@id = "searchTerm_Header"]', shoe)
-t.click('//button[@data-testid = "fl-search-box-button"]')
-t.wait(3)
-price = t.read('(//span[contains(@class,"fl-price--sale")])[1]')
-name = t.read('(//span[@class="fl-product-tile--name"])[1]/span[@itemprop="name"]')
-print(name , price)	
+def get_shoe(shoe, g, email):
+	gender = g
+	t.init(visual_automation = True)
+	t.url('https://www.footlocker.sg/en/homepage')
+	t.type('//input[@id = "searchTerm_Header"]', shoe + " shoes")
+	t.click('//button[@data-testid = "fl-search-box-button"]')
+	t.wait(3)
 
+	#### for men
+	print(gender)
+	if gender == " men":
+		
 
+		t.click('//a[@data-category-path = "men"]')
+		t.wait(3)
+		count = t.count('//span[@class="fl-product-tile--name"]/span[@itemprop="name"]')
+		details = []
+		if count!= 0:
+
+			for i in range(0,min(count,3)):
+				k = i+1
+				price = t.read(f'(//span[contains(@class,"fl-price--sale")])[{k}]')
+				name = t.read(f'(//span[@class="fl-product-tile--name"])[{k}]/span[@itemprop="name"]')
+				img = t.read(f'(//picture[contains(@class, "fl-picture")]/img/@srcset)[{k+1}]')
+				print(name , price, img)
+				details.append({"email" : email,"name" : name, "price": price, "img": img,"Company" : "Footlocker"})
+		else:
+			details.append({"email" : email,"name" : "NA", "price": "NA", "img": "NA","Company" : "Footlocker"})	
+
+	else:
+		t.click('//a[@data-category-path = "women"]')
+		t.wait(3)
+		count = t.count('//span[@class="fl-product-tile--name"]/span[@itemprop="name"]')
+		details = []
+		if count!= 0:
+
+			for i in range(0,min(count,3)):
+				k = i+1
+				price = t.read(f'(//span[contains(@class,"fl-price--sale")])[{k}]')
+				name = t.read(f'(//span[@class="fl-product-tile--name"])[{k}]/span[@itemprop="name"]')
+				img = t.read(f'(//picture[contains(@class, "fl-picture")]/img/@srcset)[{k+1}]')
+				print(name , price, img)
+				details.append({"email" : email,"name" : name, "price": price, "img": img,"Company" : "Footlocker"})
+		else:
+			details.append({"email" : email,"name" : "NA", "price": "NA", "img": "NA","Company" : "Footlocker"})
+	t.close()
+
+	return details

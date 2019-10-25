@@ -1,6 +1,6 @@
 import threading
 import time
-import mailer_service.mail_bot_controller as gfc
+import mailbot_service.mailbot_controller as gfc
 
 def worker(functionality,db_connection):
    if functionality == 'website-bot':
@@ -10,7 +10,10 @@ def worker(functionality,db_connection):
    elif functionality == 'mail-bot':
         while True:
              print("[mail-bot]")
-             gfc.execute_gmail_fetch(db_connection)
+             try:
+               gfc.execute_gmail_fetch(db_connection)
+             except:
+                  pass
              time.sleep(5)
    elif functionality == 'chat-bot':
         while True:

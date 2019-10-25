@@ -10,7 +10,7 @@
 9. Mail replies
 
 '''
-from mailer_service import gmail_services,helper_services
+from mailbot_service import gmail_services,helper_services
 import persistence as p
 from robots import bot_controller
 

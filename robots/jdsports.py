@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-    # shoe_name,gender, email
+# shoe_name,gender, email
 import tagui as t
 
 
@@ -71,7 +70,6 @@ def get_shoe(shoe_name, g, email):
                                     "img": "NA", "Company": "JDsports"})
     t.close()
     return details
-=======
     # shoe_name,gender, email
 import tagui as t
 
@@ -124,4 +122,3 @@ def get_shoe_jd(shoe_name, gender, email):
                             "img": img, "Company": "JDsports"})
     t.close()
     return details
->>>>>>> 462f38a2002a0cdb939d02cce0972a7970672c62

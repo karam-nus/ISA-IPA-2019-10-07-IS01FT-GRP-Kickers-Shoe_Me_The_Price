@@ -1,9 +1,10 @@
 import pandas as pd
 import psycopg2.extras as ex
+import time
 
 
 def push_to_shoe_request(conn, details):
-    date_today = date.today()
+    date_today = time.ctime()
 
     cur = conn.cursor()
     
@@ -15,6 +16,7 @@ def push_to_shoe_request(conn, details):
     
     if updates == True:
         updates = 'Daily'
+        status = "Active"
     '''else:
         updates = "Once"'''
     
@@ -23,18 +25,18 @@ def push_to_shoe_request(conn, details):
     else:
         gender = 'F'
         
-   
     
-    sql_query = "INSERT INTO customers (email, shoes, size,frequency,Gender) VALUES (%s, %s, %s, %s, %s)"
     
-    cur.execute(sql_query, (email,shoes, size, updates, gender))
+    sql_query = "INSERT INTO subscriber (subscriber_id , shoe_names , shoe_size ,gender ,frequency, request_date, subscription_status ) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+    
+    cur.execute(sql_query, (email,shoes, size, gender, updates, date_today, status))
     
     conn.commit()
     
 
 def get_customer_data(conn):
     
-    sql = "select * from customers where frequency = 'Daily';"
+    sql = "select * from subscriber where frequency = 'Daily';"
 
     data = pd.read_sql_query(sql, conn)
     
@@ -54,11 +56,11 @@ def get_price_data(conn):
 
 
 def push_price_data(conn,shoename, website, price):
-    date_today = date.today()
+    date_today = time.ctime()
 
     cur = conn.cursor()
 
-    sql_query = "INSERT INTO shoe_price_data (shoename,website,date,price) VALUES (%s, %s, %s, %s)"
+    sql_query = "INSERT INTO shoe_price_hist (shoename,website,date,price) VALUES (%s, %s, %s, %s)"
     
     cur.execute(sql_query, (shoename,website,date_today,price))
     

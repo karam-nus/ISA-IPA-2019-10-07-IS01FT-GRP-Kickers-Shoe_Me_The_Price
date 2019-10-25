@@ -3,19 +3,20 @@ import time
 import mailbot_service.mailbot_controller as gfc
 
 def worker(functionality,db_connection):
-   if functionality == 'website-bot':
+     n = 0
+     if functionality == 'website-bot':
         while True:
-             print("[website-bot]")
-             time.sleep(90)
-   elif functionality == 'mail-bot':
-        while True:
-             print("[mail-bot]")
-             try:
-               gfc.execute_gmail_fetch(db_connection)
-             except:
-                  pass
-             time.sleep(5)
-   elif functionality == 'chat-bot':
+               print("[website-bot] "+time.ctime() + "||listening||")
+               time.sleep(90)
+     elif functionality == 'mail-bot':
+          while True:
+               print("[mail-bot] "+time.ctime() + "||listening||")
+               try:
+                    gfc.execute_gmail_fetch(db_connection)
+               except:
+                    pass
+               time.sleep(5)
+     elif functionality == 'chat-bot':
         while True:
              print("[chat-bot]")
              time.sleep(90)

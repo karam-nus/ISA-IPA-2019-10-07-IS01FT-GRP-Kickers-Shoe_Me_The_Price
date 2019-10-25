@@ -7,7 +7,7 @@ import tagui as t
 
 def get_shoe(shoe, g, email):
 	gender = g
-	t.init(visual_automation = True)
+	t.init(visual_automation = False)
 	t.url('https://www.footlocker.sg/en/homepage')
 	t.type('//input[@id = "searchTerm_Header"]', shoe + " shoes")
 	t.click('//button[@data-testid = "fl-search-box-button"]')

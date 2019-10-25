@@ -7,7 +7,7 @@ import tagui as t
 def get_shoe(shoe, g, email):
 	gender = g
 	print(gender)
-	t.init(visual_automation = True)
+	t.init(visual_automation = False)
 	t.url('https://www.nike.com/sg/')
 	t.type('//input[@id = "TypeaheadSearchInput"]', shoe + gender)
 	t.click('//button[@class = "btn-search z2 bg-transparent"]')

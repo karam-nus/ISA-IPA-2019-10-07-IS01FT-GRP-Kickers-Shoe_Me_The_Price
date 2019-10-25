@@ -1,6 +1,6 @@
 import threading
 import time
-import mailer_service.gmail_fetch_controller as gfc
+import mailer_service.mail_bot_controller as gfc
 
 def worker(functionality,db_connection):
    if functionality == 'website-bot':

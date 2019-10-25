@@ -26,7 +26,7 @@ def execute_gmail_fetch(connection):
      
      #CALL BOTS
 
-     df = bot_controller.execute_bots_for_mail(relevant_details_list)
+     df_final = bot_controller.execute_bots_for_mail(relevant_details_list)
 
      
 

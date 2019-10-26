@@ -15,7 +15,7 @@ Output -
 '''
 
 
-def execute_bots_for_mail(mail_list):
+def execute_bots_for_mail(mail_list, conn):
 
     for item in mail_list:
         shoes = item['shoe_names']
@@ -41,7 +41,7 @@ def execute_bots_for_mail(mail_list):
                     price_df = price_df.append(details)
 
         # get prediction for each shoe
-        price_df = pp.price_trend(price_df)
+        price_df = pp.price_trend(price_df, conn)
         mail_body = mbt.mail_template(price_df)
         # print('[bot-controller] mailbody ready')
 
@@ -53,7 +53,7 @@ def execute_bots_for_mail(mail_list):
     return price_df
 
 
-def execute_bots_for_daily(details):
+def execute_bots_for_daily(details, conn):
 
     price_df = pd.DataFrame()
 
@@ -83,7 +83,7 @@ def execute_bots_for_daily(details):
                 price_df = price_df.append(details)
 
         # get prediction for each shoe
-        price_df = pp.price_trend(price_df)
+        price_df = pp.price_trend(price_df, conn)
         mail_body = mbt.mail_template(price_df)
     # NEED TO CALL SEND MAIL WITH mail_body AS ARGUMENT
         service = pm.connect_gmail_send()

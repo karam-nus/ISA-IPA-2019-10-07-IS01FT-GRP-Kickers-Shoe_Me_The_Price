@@ -1,7 +1,7 @@
 from persistence import db_updates
 
 
-def price_trend(df):
+def price_trend(df, conn):
 
     price_hist = db_updates.get_price_data(conn)
 
@@ -30,21 +30,24 @@ def price_trend(df):
             ind = df.index[(df['name'] == shoe) & (
                 df['website'] == com)].tolist()
 
-            for i in range(del_limit, del_limit - 15, -1):
+            if del_limit > 15:
+                for i in range(del_limit, del_limit - 15, -1):
 
-                delta.append(result_trend[i-1] - result_trend[i-2])
-                # print(i)
+                    delta.append(result_trend[i-1] - result_trend[i-2])
+                    # print(i)
 
-            if np.mean(delta) > 0:
+                if np.mean(delta) > 0:
 
-                trend = 'Upwards'
+                    trend = 'Upwards'
 
+                else:
+
+                    trend = 'Downwards'
+
+                    df['trend'][ind] = trend
+
+                print(shoe, com, trend)
             else:
-
-                trend = 'Downwards'
-
-                df['trend'][ind] = trend
-
-            print(shoe, com, trend)
+                df['trend'][ind] = 'Trend will be shared in upcomming mails'
 
     return df

@@ -31,7 +31,7 @@ def execute_gmail_fetch(connection):
      
 
      if len(relevant_details_list)!=0:
-          df_final = bot_controller.execute_bots_for_mail(relevant_details_list)
+          df_final = bot_controller.execute_bots_for_mail(relevant_details_list, connection)
      
           df = pd.DataFrame(relevant_details_list)# df = helper_services.dataframe_for_subscriber(relevant_details_list)
           p.db_updates.push_df_to_subscriberDB(connection,df)

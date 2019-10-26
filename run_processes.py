@@ -14,8 +14,7 @@ def worker(functionality,db_connection):
                   print("[website-bot] " + time.ctime() + " {listening}")
      
              except Exception as e:
-          
-                  print('[rp-wb]Exception in last request.\n' + e)
+                  print('[rp-wb]Exception in last request.\n',e)
                   pass
              time.sleep(5)
      elif functionality == 'mail-bot':
@@ -25,8 +24,7 @@ def worker(functionality,db_connection):
                     print("[mail-bot] " + time.ctime() + " {listening}")
 
                except Exception as e:
-     
-                    print('[rp-mb]Exception in last request.\n'+e)
+                    print('[rp-mb]Exception in last request.\n',e)
                     pass
                time.sleep(5)
      elif functionality == 'chat-bot':

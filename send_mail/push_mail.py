@@ -54,7 +54,7 @@ def send_message(service, message):
      message: Message to be sent.'''
 
      try:
-          print([push_mail] +time.ctime()+"{sending message}")
+          print('[push_mail]' +time.ctime()+"{sending message}")
           message = service.users().messages().send(userId='me', body=message).execute()
           # print('Message Id: %s' % message['id'])
           # return message

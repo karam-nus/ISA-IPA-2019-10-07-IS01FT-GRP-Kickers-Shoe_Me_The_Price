@@ -1,6 +1,6 @@
 def mail_template(df):
-	df.reset_index(inplace=True)
-	body = '''<html>
+    df.reset_index(inplace=True)
+    body = '''<html>
 	<head>
 	<title> ABC </title>
 	</head>
@@ -9,23 +9,22 @@ def mail_template(df):
 	<th>Shoe name</th><th>Website name</th><th>Price</th><th>Colorware</th><th>Recommendation</th>
 	'''
 
-	rows = ''
-	# print('[mbt]a', len(df))
-	for i in range(0,len(df)):
+    rows = ''
+    # print('[mbt]a', len(df))
+    for i in range(0, len(df)):
 
-		row = '''<tr ><td align = "center" style="font-family:cursive;"><a href = '''+df["link"][i]'''>'''+df["name"][i]+'''</a></td><td align = "center" style="font-family:cursive;">'''+df["Company"][i]+'''</td><td align = "center" style="font-family:cursive;">'''+df["price"][i]+'''</td>
-	     <td align = "center"><img src =''' +df["img"][i]+ '''width = 100 height = 100/></td><td>''' +df["trend"]+'''</tr>
+        row = '''<tr ><td align = "center" style="font-family:cursive;"><a href = '''+df["link"][i]+'''>'''+df["name"][i]+'''</a></td><td align = "center" style="font-family:cursive;">'''+df["Company"][i]+'''</td><td align = "center" style="font-family:cursive;">'''+df["price"][i]+'''</td>
+	     <td align = "center"><img src =''' + df["img"][i] + '''width = 100 height = 100/></td><td>''' + df["trend"]+'''</tr>
 	     '''
-		# print('[mbt]a',i,row)
-		# print('[mbt]b',df['name'][i],df['img'][i])
-		rows += row
-		# print('===[mbt]c',i+1," rows completed")
+        # print('[mbt]a',i,row)
+        # print('[mbt]b',df['name'][i],df['img'][i])
+        rows += row
+        # print('===[mbt]c',i+1," rows completed")
 
-	     
-	end = '''</table>
+    end = '''</table>
 	</body>
 	</html>'''
 
-	final = body + rows + end
+    final = body + rows + end
 
-	return final
+    return final

@@ -1,4 +1,6 @@
 from persistence import db_updates
+from statsmodels.tsa.seasonal import seasonal_decompose
+
 
 
 def price_trend(df, conn):

@@ -22,10 +22,11 @@ def get_shoe(shoe, g, email):
 			name = t.read(f'(//a[@class = "product-card__link-overlay"])[{k}]')
 			price = t.read(f'(//div[@data-test="product-price"])[{k}]')
 			img = t.read(f'(//div[contains(@class, "product-card__hero")]/picture/img)[{k}]/@src')
+			link = t.read(f'(//a[contains(@class,"product-card")])[{k}]/@href')
 			# print('[nike]',name , price, img)
-			details.append({"email" : email, "name" : name, "price": price, "img": img,"Company" : "Nike"})
+			details.append({"email" : email, "name" : name, "price": price, "img": img,"Company" : "Nike", "link": link})
 	else:
-		details.append({"email" : email, "name" : "NA", "price": "NA", "img": "NA","Company" : "Nike"})
+		details.append({"email" : email, "name" : "NA", "price": "NA", "img": "NA","Company" : "Nike", "link": "NA"})
 
 	t.close()
 	return details

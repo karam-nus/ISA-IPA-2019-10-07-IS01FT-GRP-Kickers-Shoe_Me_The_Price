@@ -29,10 +29,11 @@ def get_shoe(shoe, g, email):
 				price = t.read(f'(//span[contains(@class,"fl-price--sale")])[{k}]')
 				name = t.read(f'(//span[@class="fl-product-tile--name"])[{k}]/span[@itemprop="name"]')
 				img = t.read(f'(//picture[contains(@class, "fl-picture")]/img/@srcset)[{k+1}]')
+				link = t.read(f'(//div[@class = "fl-product-tile--basic"])[{k}]/a/@href')
 				print(name , price, img)
-				details.append({"email" : email,"name" : name, "price": price, "img": img,"Company" : "Footlocker"})
+				details.append({"email" : email,"name" : name, "price": price, "img": img,"Company" : "Footlocker", "link" : link})
 		else:
-			details.append({"email" : email,"name" : "NA", "price": "NA", "img": "NA","Company" : "Footlocker"})	
+			details.append({"email" : email,"name" : "NA", "price": "NA", "img": "NA","Company" : "Footlocker", "link" : "NA"})	
 
 	else:
 		t.click('//a[@data-category-path = "women"]')
@@ -46,10 +47,11 @@ def get_shoe(shoe, g, email):
 				price = t.read(f'(//span[contains(@class,"fl-price--sale")])[{k}]')
 				name = t.read(f'(//span[@class="fl-product-tile--name"])[{k}]/span[@itemprop="name"]')
 				img = t.read(f'(//picture[contains(@class, "fl-picture")]/img/@srcset)[{k+1}]')
+				link = t.read(f'(//div[@class = "fl-product-tile--basic"])[{k}]/a/@href')
 				print(name , price, img)
-				details.append({"email" : email,"name" : name, "price": price, "img": img,"Company" : "Footlocker"})
+				details.append({"email" : email,"name" : name, "price": price, "img": img,"Company" : "Footlocker", "link" : link})
 		else:
-			details.append({"email" : email,"name" : "NA", "price": "NA", "img": "NA","Company" : "Footlocker"})
+			details.append({"email" : email,"name" : "NA", "price": "NA", "img": "NA","Company" : "Footlocker", "link" : "NA"})
 	t.close()
 
 	return details

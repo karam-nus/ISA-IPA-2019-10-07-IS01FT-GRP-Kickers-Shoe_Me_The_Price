@@ -55,7 +55,7 @@ def get_customer_data_instant(conn):
 
 def get_price_data(conn):
     
-    sql = "select * from prices;"
+    sql = "select * from shoe_price_hist;"
     
     data = pd.read_sql_query(sql, conn)
     

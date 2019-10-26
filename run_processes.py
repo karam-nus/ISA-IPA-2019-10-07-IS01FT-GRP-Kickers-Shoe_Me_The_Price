@@ -2,6 +2,7 @@ import threading
 import time
 import mailbot_service.mailbot_controller as gfc
 import send_mail
+from datetime import datetime
 #import app
 
 def worker(functionality,db_connection):
@@ -27,6 +28,11 @@ def worker(functionality,db_connection):
              time.sleep(90)
       # elif functionality == 'daily-updates':
       #   while True:
+            #if datetime.now().strftime('%H:%M') == '7:00'
+              # call db_updates for customer data
+              # call daily updates script
+            # call db_updates for requests in last 10 mins
+            # call daily updates script
       #     print("[daily-updates]")
       #     time.sleep(10)
 

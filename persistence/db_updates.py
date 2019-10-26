@@ -1,10 +1,12 @@
 import pandas as pd
 import psycopg2.extras as ex
 import time
+from time import gmtime, strftime
+from datetime import datetime
 
 
 def push_to_shoe_request(conn, details):
-    date_today = time.ctime()
+    date_today = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
     cur = conn.cursor()
     
@@ -43,7 +45,13 @@ def get_customer_data(conn):
     return data
 
 
+def get_customer_data_instant(conn):
 
+    sql = "select * from subscriber where TO_TIMESTAMP(request_date, 'YYYY/MM/DD HH24:MI:SS') >= now() + interval '8:00' - interval '10 min' and frequency = 'Daily';"
+
+    data = pd.read_sql_query(sql, conn)
+    
+    return data
 
 def get_price_data(conn):
     
@@ -56,7 +64,7 @@ def get_price_data(conn):
 
 
 def push_price_data(conn,shoename, website, price):
-    date_today = time.ctime()
+    date_today = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
     cur = conn.cursor()
 

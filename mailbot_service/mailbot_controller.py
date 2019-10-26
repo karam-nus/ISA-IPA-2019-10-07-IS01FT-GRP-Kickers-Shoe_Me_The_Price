@@ -23,13 +23,15 @@ def execute_gmail_fetch(connection):
      relevant_messages = gmail_services.get_relevant_emails(service)      # List of filtered unread messages
      # Extract emaidID, Subject
      relevant_details_list = gmail_services.get_info_from_mail(relevant_messages)    # List of dictionaries
+     # print('[mailbot_controller]',relevant_details_list)
      
      #CALL BOTS
-
-     df_final = bot_controller.execute_bots_for_mail(relevant_details_list)
+     
 
      
 
      if len(relevant_details_list)!=0:
+          df_final = bot_controller.execute_bots_for_mail(relevant_details_list)
+     
           df = pd.DataFrame(relevant_details_list)# df = helper_services.dataframe_for_subscriber(relevant_details_list)
           p.db_updates.push_df_to_subscriberDB(connection,df)

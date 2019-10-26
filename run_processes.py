@@ -9,17 +9,24 @@ def worker(functionality,db_connection):
      n = 0
      if functionality == 'website-bot':
         while True:
-               print("[website-bot] "+time.ctime() + "||listening||")
-               
-               import app
-               
-               time.sleep(90)
+             try:
+                  import app
+                  print("[website-bot] " + time.ctime() + " {listening}")
+     
+             except Exception as e:
+          
+                  print('[rp-wb]Exception in last request.\n' + e)
+                  pass
+             time.sleep(5)
      elif functionality == 'mail-bot':
           while True:
-               print("[mail-bot] "+time.ctime() + "||listening||")
                try:
                     gfc.execute_gmail_fetch(db_connection)
-               except:
+                    print("[mail-bot] " + time.ctime() + " {listening}")
+
+               except Exception as e:
+     
+                    print('[rp-mb]Exception in last request.\n'+e)
                     pass
                time.sleep(5)
      elif functionality == 'chat-bot':

@@ -11,7 +11,7 @@ def get_shoe(shoe_name, g, email):
     :return: details, list of shoe details.
     """
     details = []
-    t.init(visual_automation=False)
+    t.init(visual_automation=True)
     t.url('https://www.jdsports.com.sg/')
     t.wait(5)
     final_command =  shoe_name + '[enter]'

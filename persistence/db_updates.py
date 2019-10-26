@@ -47,7 +47,7 @@ def get_customer_data(conn):
 
 def get_customer_data_instant(conn):
 
-    sql = "select * from subscriber where TO_TIMESTAMP(request_date, 'YYYY/MM/DD HH24:MI:SS') >= now() + interval '8:00' - interval '10 min' and frequency = 'Daily';"
+    sql = "select * from subscriber where TO_TIMESTAMP(request_date, 'YYYY/MM/DD HH24:MI:SS') >= now() + interval '8:00' - interval '10 min';"
 
     data = pd.read_sql_query(sql, conn)
     

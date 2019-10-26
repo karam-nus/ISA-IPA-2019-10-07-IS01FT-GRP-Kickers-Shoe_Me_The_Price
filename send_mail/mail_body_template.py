@@ -1,5 +1,5 @@
 def mail_template(df):
-
+	df.reset_index(inplace=True)
 	body = '''<html>
 	<head>
 	<title> ABC </title>
@@ -10,13 +10,17 @@ def mail_template(df):
 	'''
 
 	rows = ''
-
+	# print('[mbt]a', len(df))
 	for i in range(0,len(df)):
-	     
-	     row = '''<tr ><td align = "center" style="font-family:cursive;">'''+df["name"][i]+'''</td><td align = "center" style="font-family:cursive;">'''+df["Company"][i]+'''</td><td align = "center" style="font-family:cursive;">'''+df["price"][i]+'''</td>
-	     <td align = "center"><img src =''' + df["img"][i] + '''width = 100 height = 100/></td></tr>
+
+		row = '''<tr ><td align = "center" style="font-family:cursive;">'''+df["name"][i]+'''</td><td align = "center" style="font-family:cursive;">'''+df["Company"][i]+'''</td><td align = "center" style="font-family:cursive;">'''+df["price"][i]+'''</td>
+	     <td align = "center"><img src =''' +df["img"][i]+ '''width = 100 height = 100/></td></tr>
 	     '''
-	     rows += row
+		# print('[mbt]a',i,row)
+		# print('[mbt]b',df['name'][i],df['img'][i])
+		rows += row
+		# print('===[mbt]c',i+1," rows completed")
+
 	     
 	end = '''</table>
 	</body>

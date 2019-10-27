@@ -56,7 +56,7 @@ def get_relevant_emails(service):
 
 def get_info_from_mail(selected_messages):
      # Fetch out emailID, subject etc.
-     date_today = date.today()
+     date_today = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
      final_list = []
      for message in selected_messages:
           headers = message['payload']['headers'] # list

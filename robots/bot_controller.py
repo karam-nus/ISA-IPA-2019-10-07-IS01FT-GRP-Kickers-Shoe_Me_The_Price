@@ -41,10 +41,21 @@ def execute_bots_for_mail(mail_list, conn):
                     price_df = price_df.append(details)
 
         # get prediction for each shoe
-        price_df_final = pp.price_trend(price_df, conn)
+        price_df = price_df[price_df['name'] != "NA"]
+
+        if len(price_df) != 0:
+
+            price_df_final = pp.price_trend(price_df, conn)
         # print('[bot-controller]','after price_df assignment')
-        mail_body = mbt.mail_template(price_df_final)
+            mail_body = mbt.mail_template(price_df_final)
         # print('[bot-controller] mailbody ready')
+        else:
+            mail_body = '''Sorry, We couldn't find any shoes matching your request.
+            Please send us a mail at shoemetheprice@gmail.com with the shoe name and gender in the subject.
+            Example subject - [M] Nike Air Max 1
+
+            Thank You
+            ShoeMeThePrice'''
 
     # NEED TO CALL SEND MAIL WITH mail_body AS ARGUMENT
         service = pm.connect_gmail_send()
@@ -84,8 +95,23 @@ def execute_bots_for_daily(details, conn):
                 price_df = price_df.append(details)
 
         # get prediction for each shoe
-        price_df_final = pp.price_trend(price_df, conn)
-        mail_body = mbt.mail_template(price_df_final)
+
+        price_df = price_df[price_df['name'] != "NA"]
+
+        if len(price_df) != 0:
+
+            price_df_final = pp.price_trend(price_df, conn)
+        # print('[bot-controller]','after price_df assignment')
+            mail_body = mbt.mail_template(price_df_final)
+        # print('[bot-controller] mailbody ready')
+        else:
+            mail_body = '''Sorry, We couldn't find any shoes matching your request.
+            Please send us a mail at shoemetheprice@gmail.com with the shoe name and gender in the subject.
+            Example subject - [M] Nike Air Max 1
+
+            Thank You
+            ShoeMeThePrice'''
+
     # NEED TO CALL SEND MAIL WITH mail_body AS ARGUMENT
         service = pm.connect_gmail_send()
         message = pm.create_message(email, shoes, mail_body)

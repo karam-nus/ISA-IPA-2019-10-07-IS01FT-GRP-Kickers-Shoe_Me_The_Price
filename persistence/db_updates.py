@@ -62,7 +62,7 @@ def get_price_data(conn):
     return data
 
 
-def push_price_data(price_dfconn):
+def push_price_data(price_df,conn):
 
     date_today = datetime.now().strftime('%d-%m-%Y')
 
@@ -96,6 +96,28 @@ def push_df_to_subscriberDB(connection, df):
         # create INSERT INTO table (columns) VALUES('%s',...)
         insert_stmt = "INSERT INTO {} ({}) {}".format(table, columns, values)
 
+        cur = connection.cursor()
+        ex.execute_batch(cur, insert_stmt, df.values)
+        connection.commit()
+        cur.close()
+
+
+def push_file_to_price_histDB(connection, df):
+    table = 'shoe_price_hist'
+    if len(df) > 0:
+        '''        for i in range(0, len(df)):
+                    if 's$' in df[i].lower() or '$' in df[i].lower():
+                        price = int(df[i].split('$')[1])
+                    else:
+                        price = int(df[i])
+                    df['price'][i] = price'''
+        df_columns = list(df)
+        # create (col1,col2,...)
+        columns = ",".join(df_columns)
+        # create VALUES('%s', '%s",...) one '%s' per column
+        values = "VALUES({})".format(",".join(["%s" for _ in df_columns]))
+        # create INSERT INTO table (columns) VALUES('%s',...)
+        insert_stmt = "INSERT INTO {} ({}) {}".format(table, columns, values)
         cur = connection.cursor()
         ex.execute_batch(cur, insert_stmt, df.values)
         connection.commit()

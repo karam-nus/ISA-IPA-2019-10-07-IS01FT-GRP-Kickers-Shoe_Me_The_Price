@@ -1,4 +1,3 @@
-from __future__ import print_function
 import pickle
 import os.path
 import os
@@ -31,6 +30,7 @@ def connect_gmail():
      service = build('gmail', 'v1', credentials=creds)
      return service
 
+
 def mark_as_read(service,msg_id):
      try:
           message = service.users().messages().modify(userId='me', id=msg_id,
@@ -53,6 +53,7 @@ def get_relevant_emails(service):
                selected_messages.append(msg)
      return selected_messages
 
+
 def get_info_from_mail(selected_messages):
      # Fetch out emailID, subject etc.
      date_today = date.today()
@@ -62,12 +63,19 @@ def get_info_from_mail(selected_messages):
           required_stuff = {} # name, subject, email
           subject = None
           email = None
+          gender = 'M'
           for item in headers:
                if (item['name']=='From'):
                     name = item['value'].split('<')[0].strip()
                     email = item['value'].split('<')[1].split('>')[0]
                elif(item['name']=='Subject'):
+                    info = item['value']
+                    # case 1 - correct info
+                    # case 2 - incorrect info
+                    # case 3 - missing info
+                    
                     subject = item['value']
+
                     print('[mail-bot] :: Request recieved :: '+subject)
                     flag = True
           if(subject and email and flag):

@@ -3,7 +3,9 @@ import psycopg2
 import time
 import pandas as pd
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
+from persistence import db_updates
 
+import psycopg2.extras as ex
 
 def create_connection(config, DB_Name = None):
     '''
@@ -44,7 +46,7 @@ def create_tables(connection):
     gender text DEFAULT 'M'::text,
     frequency text DEFAULT 'Once'::text,
     request_date text,
-    subscription_status text DEFAULT 'Inactive'::text
+    status text DEFAULT 'Pending'::text
 );
         """, #
         # """ CREATE UNIQUE INDEX subscriber_pkey ON subscriber(id int4_ops);
@@ -76,14 +78,14 @@ def create_tables(connection):
     
         
 def populate_history(connection):
-    history = 'data/price_history.csv' # 'data/price_history.xlsx'
+    history = 'data/shoe_price_hist.csv' # 'data/price_history.xlsx'
     file = sys.argv[0]
     pathname = os.path.dirname(file)
     history_filepath = os.path.join(pathname,history)
-    # print(history_filepath)
-    df = pd.read_csv(history_filepath)
+    df = pd.read_csv(history_filepath) # , columns = ['shoe_name','website','price_date','price'])
     #TODO df.to_sql('shoe_price_hist',connection, if_exists='append')
-    
+    db_updates.push_file_to_price_histDB(connection,df)
+
     
 def check_Shoe_DB(config,connection):
     '''

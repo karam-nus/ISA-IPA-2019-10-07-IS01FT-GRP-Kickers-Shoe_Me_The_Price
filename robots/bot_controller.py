@@ -35,11 +35,11 @@ def execute_bots_for_mail(mail_list, conn):
                 # details = robots.farfetch.get_shoe(email, shoe, gender = gender)
                 # price_df = price_df.append(details)
 
-                if "nike" in shoe.lower():
+                ''' if "nike" in shoe.lower():
 
                     details = nike.get_shoe(shoe, gender, email)
                     # print('[bot-controller]',details)
-                    price_df = price_df.append(details)
+                    price_df = price_df.append(details)'''
 
         # get prediction for each shoe
         print("Price df created")

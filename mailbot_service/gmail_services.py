@@ -6,6 +6,8 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from datetime import date, datetime
 from apiclient import errors
+from datetime import datetime
+
 
 def connect_gmail():
      SCOPES = ['https://www.googleapis.com/auth/gmail.modify']
@@ -40,6 +42,14 @@ def mark_as_read(service,msg_id):
           print('An error occurred: %s' % error)
           
 
+def check_message_validity(message):
+     '''     validity = False
+          if (message['snippet'].strip()==''):
+               validity = True'''
+     validity = True
+     return validity
+     
+     
 def get_relevant_emails(service):
      # Call the Gmail API to fetch INBOX
      results = service.users().messages().list(userId='me',labelIds = ['UNREAD']).execute()
@@ -49,7 +59,8 @@ def get_relevant_emails(service):
      for message in unread_messages:
           msg = service.users().messages().get(userId='me', id=message['id']).execute()
           mark_as_read(service,message['id'])
-          if (msg['snippet'].strip()==''):
+          validity = check_message_validity(message)
+          if (validity == True):
                selected_messages.append(msg)
      return selected_messages
 
@@ -60,10 +71,11 @@ def get_info_from_mail(selected_messages):
      final_list = []
      for message in selected_messages:
           headers = message['payload']['headers'] # list
-          required_stuff = {} # name, subject, email
+          required_stuff = {} # name, subject, email, gender
           subject = None
           email = None
           gender = 'M'
+          gender_list = ['M','F']
           for item in headers:
                if (item['name']=='From'):
                     name = item['value'].split('<')[0].strip()
@@ -73,16 +85,26 @@ def get_info_from_mail(selected_messages):
                     # case 1 - correct info
                     # case 2 - incorrect info
                     # case 3 - missing info
-                    
-                    subject = item['value']
+                    lst = info.split(']')
+                    if(len(lst)==2): # correct flow
+                         gender = lst[0][-1].upper()
+                         print('[Gm-serv]',gender)
+                         if(gender not in gender_list):
+                              print("[Gm-serv]incorrect gender")
+                              gender = 'M'
 
+                    # subject = item['value']
+                    subject = lst[1]
+                    
                     print('[mail-bot] :: Request recieved :: '+subject)
                     flag = True
           if(subject and email and flag):
                required_stuff['request_date'] = date_today
                required_stuff['shoe_names'] = subject
                required_stuff['subscriber_id'] = email
+               required_stuff['gender'] = gender
                final_list.append(required_stuff)
+               print('[Gm-serv] appended info list')
                flag = False
      return final_list
 # TODO some unsubscribe logic in the same loop

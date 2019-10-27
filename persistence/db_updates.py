@@ -16,9 +16,6 @@ def push_to_shoe_request(conn, details):
     updates = details['updates']
     gender = details['gender']
 
-    if updates == True:
-        updates = 'Daily'
-        status = "Active"
     '''else:
         updates = "Once"'''
 
@@ -64,6 +61,7 @@ def get_price_data(conn):
 
 def push_price_data(price_df,conn):
 
+    print("inside push price")
     date_today = datetime.now().strftime('%d-%m-%Y')
 
     cur = conn.cursor()
@@ -71,18 +69,30 @@ def push_price_data(price_df,conn):
     for i in range(0, len(price_df)):
 
         shoename = price_df['name'][i]
-        website = price_df['website'][i]
+        website = price_df['Company'][i]
 
-        if 's$' in price_df[i].lower() or '$' in price_df[i].lower():
-            price = int(price_df[i].split('$')[1])
+        print(shoename,website)
+
+        if 's$' in price_df['price'][i].lower() or '$' in price_df['price'][i].lower():
+            price = price_df['price'][i].split('$')[1]
+            if ',' in price:
+                price = price.split(',')[0]
+
         else:
-            price = int(price_df[i])
+            price = int(price_df['price'][i])
+        
+        price = int(price)
+        print(price)
 
-        sql_query = "INSERT INTO shoe_price_hist (shoename,website,price_date,price) VALUES (%s, %s, %s, %s)"
+        sql_query = "INSERT INTO shoe_price_hist (shoe_name,website,price_date,price) VALUES (%s, %s, %s, %s)"
 
         cur.execute(sql_query, (shoename, website, date_today, price))
 
+        print("query executed")
+
         conn.commit()
+
+        print("DB comit")
 
 
 def push_df_to_subscriberDB(connection, df):

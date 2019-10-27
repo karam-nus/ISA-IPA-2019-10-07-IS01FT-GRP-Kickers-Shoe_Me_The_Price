@@ -8,6 +8,7 @@ import pandas as pd
 from send_mail import mail_body_template as mbt
 from send_mail import push_mail as pm
 from send_mail import price_prediction as pp
+from persistence import db_updates as db
 
 '''
 Input params -
@@ -66,6 +67,8 @@ def execute_bots_for_mail(mail_list, conn):
         service = pm.connect_gmail_send()
         message = pm.create_message(email, shoes, mail_body)
         pm.send_message(service, message)
+        db.push_price_data(price_df,conn)
+        print("Data pushed")
 
     return price_df
 

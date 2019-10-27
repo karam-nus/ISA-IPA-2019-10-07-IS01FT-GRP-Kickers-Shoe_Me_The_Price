@@ -36,7 +36,7 @@ def worker(functionality, db_connection):
              time.sleep(90)
      elif functionality == 'daily-updates':
         while True:
-            if datetime.now().strftime('%H:%M') in ['7:00', '7:05', '7:10']:
+            if datetime.now().strftime('%H:%M') in ['07:00', '07:05', '07:10']:
 
               daily_script.daily_updates(db_connection)
 

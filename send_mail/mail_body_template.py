@@ -14,7 +14,7 @@ def mail_template(df):
     for i in range(0, len(df)):
 
         row = '''<tr ><td align = "center" style="font-family:cursive;"><a href = '''+df["link"][i]+'''>'''+df["name"][i]+'''</a></td><td align = "center" style="font-family:cursive;">'''+df["Company"][i]+'''</td><td align = "center" style="font-family:cursive;">'''+df["price"][i]+'''</td>
-	     <td align = "center"><img src =''' + df["img"][i] + '''width = 100 height = 100/></td><td>''' + df["trend"][i]+'''</tr>
+	     <td align = "center"><img src =''' + df["img"][i] + ''' width = 100 height = 100/></td><td>''' + df["trend"][i]+'''</tr>
 	     '''
         # print('[mbt]a',i,row)
         # print('[mbt]b',df['name'][i],df['img'][i])

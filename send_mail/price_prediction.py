@@ -8,7 +8,7 @@ def price_trend(df, conn):
 
     price_hist = db_updates.get_price_data(conn)
     # print('[pp]a')
-    df['trend'] = ''
+    df['trend'] = 'Trend will be shared in upcomming mails'
     # print('[pp]b')
 
     for shoe in df['name'].unique():

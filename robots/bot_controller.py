@@ -23,10 +23,10 @@ def execute_bots_for_mail(mail_list, conn):
         price_df = pd.DataFrame()
         for shoe in shoes.split(','):
 
-            for gender in [" men"]: # , " women"]:
+            for gender in [" men"]:  # , " women"]:
 
-                details = footlocker.get_shoe(shoe, gender, email)
-                price_df = price_df.append(details)
+                #details = footlocker.get_shoe(shoe, gender, email)
+                #price_df = price_df.append(details)
 
                 # details = jdsports.get_shoe(shoe, gender, email)
                 # price_df = price_df.append(details)
@@ -34,11 +34,11 @@ def execute_bots_for_mail(mail_list, conn):
                 # details = robots.farfetch.get_shoe(email, shoe, gender = gender)
                 # price_df = price_df.append(details)
 
-                '''if "nike" in shoe.lower():
+                if "nike" in shoe.lower():
 
                     details = nike.get_shoe(shoe, gender, email)
                     # print('[bot-controller]',details)
-                    price_df = price_df.append(details)'''
+                    price_df = price_df.append(details)
 
         # get prediction for each shoe
         price_df_final = pp.price_trend(price_df, conn)

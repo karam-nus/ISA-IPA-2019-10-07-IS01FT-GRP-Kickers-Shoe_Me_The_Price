@@ -75,7 +75,7 @@ def push_price_data(price_dfconn):
 
         if 's$' in price_df[i].lower() or '$' in price_df[i].lower():
             price = int(price_df[i].split('$')[1])
-        elif:
+        else:
             price = int(price_df[i])
 
         sql_query = "INSERT INTO shoe_price_hist (shoename,website,price_date,price) VALUES (%s, %s, %s, %s)"

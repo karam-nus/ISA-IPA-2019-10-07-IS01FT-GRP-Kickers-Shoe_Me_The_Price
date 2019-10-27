@@ -19,14 +19,15 @@ def execute_bots_for_mail(mail_list, conn):
 
     for item in mail_list:
         shoes = item['shoe_names']
+        print(shoes)
         email = item['subscriber_id']
         price_df = pd.DataFrame()
         for shoe in shoes.split(','):
 
             for gender in [" men"]:  # , " women"]:
 
-                #details = footlocker.get_shoe(shoe, gender, email)
-                #price_df = price_df.append(details)
+                details = footlocker.get_shoe(shoe, gender, email)
+                price_df = price_df.append(details)
 
                 # details = jdsports.get_shoe(shoe, gender, email)
                 # price_df = price_df.append(details)
@@ -41,21 +42,25 @@ def execute_bots_for_mail(mail_list, conn):
                     price_df = price_df.append(details)
 
         # get prediction for each shoe
-        price_df = price_df[price_df['name'] != "NA"]
-
+        print("Price df created")
+        print(price_df.columns)
+        price_df = price_df[price_df.name != "NA"]
+        print("NA removed")
         if len(price_df) != 0:
-
+            print("LEN not 0")
             price_df_final = pp.price_trend(price_df, conn)
+            print("price trend extracted")
         # print('[bot-controller]','after price_df assignment')
             mail_body = mbt.mail_template(price_df_final)
         # print('[bot-controller] mailbody ready')
         else:
-            mail_body = '''Sorry, We couldn't find any shoes matching your request.
-            Please send us a mail at shoemetheprice@gmail.com with the shoe name and gender in the subject.
-            Example subject - [M] Nike Air Max 1
+            mail_body = '''Sorry, We couldn't find any shoes matching your request.\n
+            Please send us a mail at shoemetheprice@gmail.com with the shoe name and gender in the subject.\n
+            Example subject - [M] Nike Air Max 1\n\n
 
             Thank You
             ShoeMeThePrice'''
+            print("Sorry mail body ready")
 
     # NEED TO CALL SEND MAIL WITH mail_body AS ARGUMENT
         service = pm.connect_gmail_send()
@@ -105,9 +110,9 @@ def execute_bots_for_daily(details, conn):
             mail_body = mbt.mail_template(price_df_final)
         # print('[bot-controller] mailbody ready')
         else:
-            mail_body = '''Sorry, We couldn't find any shoes matching your request.
-            Please send us a mail at shoemetheprice@gmail.com with the shoe name and gender in the subject.
-            Example subject - [M] Nike Air Max 1
+            mail_body = '''Sorry, We couldn't find any shoes matching your request.\n
+            Please send us a mail at shoemetheprice@gmail.com with the shoe name and gender in the subject.\n
+            Example subject - [M] Nike Air Max 1\n\n
 
             Thank You
             ShoeMeThePrice'''

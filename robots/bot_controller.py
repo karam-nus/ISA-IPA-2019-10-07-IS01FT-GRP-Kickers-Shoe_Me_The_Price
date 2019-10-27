@@ -23,10 +23,10 @@ def execute_bots_for_mail(mail_list, conn):
         price_df = pd.DataFrame()
         for shoe in shoes.split(','):
 
-            for gender in [" men", " women"]:
+            for gender in [" men"]: # , " women"]:
 
-                # details = footlocker.get_shoe(shoe, gender, email)
-                # price_df = price_df.append(details)
+                details = footlocker.get_shoe(shoe, gender, email)
+                price_df = price_df.append(details)
 
                 # details = jdsports.get_shoe(shoe, gender, email)
                 # price_df = price_df.append(details)
@@ -34,15 +34,16 @@ def execute_bots_for_mail(mail_list, conn):
                 # details = robots.farfetch.get_shoe(email, shoe, gender = gender)
                 # price_df = price_df.append(details)
 
-                if "nike" in shoe.lower():
+                '''if "nike" in shoe.lower():
 
                     details = nike.get_shoe(shoe, gender, email)
                     # print('[bot-controller]',details)
-                    price_df = price_df.append(details)
+                    price_df = price_df.append(details)'''
 
         # get prediction for each shoe
-        price_df = pp.price_trend(price_df, conn)
-        mail_body = mbt.mail_template(price_df)
+        price_df_final = pp.price_trend(price_df, conn)
+        # print('[bot-controller]','after price_df assignment')
+        mail_body = mbt.mail_template(price_df_final)
         # print('[bot-controller] mailbody ready')
 
     # NEED TO CALL SEND MAIL WITH mail_body AS ARGUMENT
@@ -83,8 +84,8 @@ def execute_bots_for_daily(details, conn):
                 price_df = price_df.append(details)
 
         # get prediction for each shoe
-        price_df = pp.price_trend(price_df, conn)
-        mail_body = mbt.mail_template(price_df)
+        price_df_final = pp.price_trend(price_df, conn)
+        mail_body = mbt.mail_template(price_df_final)
     # NEED TO CALL SEND MAIL WITH mail_body AS ARGUMENT
         service = pm.connect_gmail_send()
         message = pm.create_message(email, shoes, mail_body)

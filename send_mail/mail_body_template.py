@@ -10,14 +10,15 @@ def mail_template(df):
 	'''
 
     rows = ''
-    # print('[mbt]a', len(df))
+    # print('[mbt]a')
     for i in range(0, len(df)):
 
         row = '''<tr ><td align = "center" style="font-family:cursive;"><a href = '''+df["link"][i]+'''>'''+df["name"][i]+'''</a></td><td align = "center" style="font-family:cursive;">'''+df["Company"][i]+'''</td><td align = "center" style="font-family:cursive;">'''+df["price"][i]+'''</td>
-	     <td align = "center"><img src =''' + df["img"][i] + '''width = 100 height = 100/></td><td>''' + df["trend"]+'''</tr>
+	     <td align = "center"><img src =''' + df["img"][i] + '''width = 100 height = 100/></td><td>''' + df["trend"][i]+'''</tr>
 	     '''
         # print('[mbt]a',i,row)
         # print('[mbt]b',df['name'][i],df['img'][i])
+        # print('[mbt]b')
         rows += row
         # print('===[mbt]c',i+1," rows completed")
 
@@ -26,5 +27,5 @@ def mail_template(df):
 	</html>'''
 
     final = body + rows + end
-
+    # print('[mbt]c')
     return final

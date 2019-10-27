@@ -55,7 +55,7 @@ def create_tables(connection):
     shoe_name text,
     website text,
     price_date text,
-    price text
+    price INTEGER
 );
         """) #,
         #"""

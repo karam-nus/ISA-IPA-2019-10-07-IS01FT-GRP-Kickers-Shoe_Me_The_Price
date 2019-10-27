@@ -2,19 +2,22 @@ import threading
 import time
 import mailbot_service.mailbot_controller as gfc
 import send_mail
+from send_mail import daily_script
 from datetime import datetime
-#import app
+from persistence import db_updates as db
+# import app
 
-def worker(functionality,db_connection):
+
+def worker(functionality, db_connection):
      n = 0
      if functionality == 'website-bot':
         while True:
              try:
                   import app
                   print("[website-bot] " + time.ctime() + " {listening}")
-     
+
              except Exception as e:
-                  print('[rp-wb]Exception in last request.\n',e)
+                  print('[rp-wb]Exception in last request.\n', e)
                   pass
              time.sleep(5)
      elif functionality == 'mail-bot':
@@ -24,22 +27,24 @@ def worker(functionality,db_connection):
                     print("[mail-bot] " + time.ctime() + " {listening}")
 
                except Exception as e:
-                    print('[rp-mb]Exception in last request.\n',e)
+                    print('[rp-mb]Exception in last request.\n', e)
                     pass
                time.sleep(5)
      elif functionality == 'chat-bot':
         while True:
              print("[chat-bot]")
              time.sleep(90)
-      # elif functionality == 'daily-updates':
-      #   while True:
-            #if datetime.now().strftime('%H:%M') == '7:00'
-              # call db_updates for customer data
-              # call daily updates script
-            # call db_updates for requests in last 10 mins
-            # call daily updates script
-      #     print("[daily-updates]")
-      #     time.sleep(10)
+     elif functionality == 'daily-updates':
+        while True:
+            if datetime.now().strftime('%H:%M') in ['7:00', '7:05', '7:10']:
+
+              daily_script.daily_updates(db_connection)
+
+            daily_script.instant_updates(db_connection)
+
+            print("[daily-updates]")
+            time.sleep(10)
+
 
 # if __name__ == '__main__':
 def execute_processes(db_connection):

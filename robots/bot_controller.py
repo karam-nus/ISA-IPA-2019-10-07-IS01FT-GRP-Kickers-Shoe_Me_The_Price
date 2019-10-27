@@ -74,16 +74,16 @@ def execute_bots_for_mail(mail_list, conn):
         db.push_price_data(price_df,conn)
         print("Data pushed")
 
-    return price_df
+    return
 
 
 def execute_bots_for_daily(details, conn):
 
-    price_df = pd.DataFrame()
 
-    for i in range(0, len(data)):
-        email = details['email'][i]
-        shoes = details['shoes'][i]
+    for i in range(0, len(details)):
+        price_df = pd.DataFrame()
+        email = details['subscriber_id'][i]
+        shoes = details['shoe_names'][i]
         gender = details['gender'][i]
 
         if gender == "M":
@@ -93,17 +93,17 @@ def execute_bots_for_daily(details, conn):
 
         for shoe in shoes.split(','):
 
-            details = footlocker.get_shoe(email, shoe, gender=gender)
+            details = footlocker.get_shoe(shoe, gender, email)
             price_df = price_df.append(details)
 
-            details = jdsports.get_shoe(email, shoe, gender=gender)
-            price_df = price_df.append(details)
+            #details = jdsports.get_shoe(shoe, gender, email)
+            #price_df = price_df.append(details)
 
             # details = robots.farfetch.get_shoe(email, shoe, gender = gender)
             # price_df = price_df.append(details)
 
             if "nike" in shoe.lower():
-                details = nike.get_shoe(email, shoe, gender=gender)
+                details = nike.get_shoe(shoe, gender, email)
                 price_df = price_df.append(details)
 
         # get prediction for each shoe
@@ -128,4 +128,7 @@ def execute_bots_for_daily(details, conn):
         service = pm.connect_gmail_send()
         message = pm.create_message(email, shoes, mail_body)
         pm.send_message(service, message)
-    return price_df
+        db.push_price_data(price_df,conn)
+        print("Data pushed")
+
+    return 

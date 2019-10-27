@@ -21,12 +21,16 @@ def price_trend(df, conn):
 
         for com in shoe_df.website.unique():
             
+            print(shoe, "company = ", com)
     
             shoe_company_df = shoe_df.loc[shoe_df['website'] == com]
             print('[pp]shoe 1')
 
             series = shoe_company_df['price'].values
-            print('[pp]shoe 2')
+            print('[pp]shoe 2', series)
+
+            if len(series) < 15:
+                continue
 
             result = seasonal_decompose(series, model='additive', freq=1)
             print('[pp]shoe 3')
@@ -61,7 +65,6 @@ def price_trend(df, conn):
                     df['trend'][ind] = trend
 
                 #print(shoe, com, trend)
-            else:
-                df['trend'][ind] = 'Trend will be shared in upcomming mails'
+            
 
     return df

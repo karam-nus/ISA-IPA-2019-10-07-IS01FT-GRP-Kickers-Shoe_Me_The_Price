@@ -3,3 +3,4 @@ credentials.json
 *.pyc
 configurations.ini
 configurations.ini
+token.pickle

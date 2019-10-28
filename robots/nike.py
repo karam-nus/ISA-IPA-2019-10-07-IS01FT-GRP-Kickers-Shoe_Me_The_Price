@@ -9,7 +9,9 @@ def get_shoe(shoe, g, email):
 	# print('[nike]',gender)
 	t.init(visual_automation = False)
 	t.url('https://www.nike.com/sg/')
+
 	t.type('//input[@id = "TypeaheadSearchInput"]', shoe  + " shoes" + gender)
+
 	t.click('//button[@class = "btn-search z2 bg-transparent"]')
 	t.wait(3)
 	count = t.count('//a[contains(@class , "product-card__link-overlay")]')

@@ -28,7 +28,8 @@ def create_connection(config, DB_Name = None):
                 myConnection = psycopg2.connect(host=host, port=port, user=username, password=password, dbname=DB_Name)
                 print("Connection with DB server successful!")
                 success = True
-        except:
+        except Exception as e:
+            print(e)
             print("Error while connecting to DB server... Please check the DB server. \nRetrying Connection in 15 seconds...")
             time.sleep(15)
     return myConnection

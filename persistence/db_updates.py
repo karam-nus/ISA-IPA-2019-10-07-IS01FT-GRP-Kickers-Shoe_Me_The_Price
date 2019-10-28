@@ -79,6 +79,9 @@ def push_price_data(price_df,conn):
             if ',' in price:
                 price = price.split(',')[0]
 
+        elif 'sgd' in price_df['price'][i].lower():
+            price = price_df['price'][i].split('SGD')[1].split('.')[0]
+            
         else:
             price = int(price_df['price'][i])
         

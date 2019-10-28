@@ -54,6 +54,6 @@ def get_shoe(shoe, g, email):
 				details.append({"email" : email,"name" : name, "price": price, "img": img,"Company" : "Footlocker", "link" : link})
 		else:
 			details.append({"email" : email,"name" : "NA", "price": "NA", "img": "NA","Company" : "Footlocker", "link" : "NA"})
-	t.close()
+	#t.close()
 
 	return details

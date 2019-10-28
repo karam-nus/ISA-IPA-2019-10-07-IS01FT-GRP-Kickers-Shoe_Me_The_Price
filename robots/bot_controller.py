@@ -3,7 +3,7 @@
 2. Execute bots based on that
 '''
 
-from robots import footlocker, nike, jdsports  # ,farfetch
+from robots import footlocker, nike, jdsports, farfetch
 import pandas as pd
 from send_mail import mail_body_template as mbt
 from send_mail import push_mail as pm
@@ -93,18 +93,20 @@ def execute_bots_for_daily(details, conn):
 
         for shoe in shoes.split(','):
 
-            details = footlocker.get_shoe(shoe, gender, email)
-            price_df = price_df.append(details)
-
-            #details = jdsports.get_shoe(shoe, gender, email)
-            #price_df = price_df.append(details)
-
-            # details = robots.farfetch.get_shoe(email, shoe, gender = gender)
-            # price_df = price_df.append(details)
-
             if "nike" in shoe.lower():
                 details = nike.get_shoe(shoe, gender, email)
                 price_df = price_df.append(details)
+
+            details = footlocker.get_shoe(shoe, gender, email)
+            price_df = price_df.append(details)
+
+            details = jdsports.get_shoe(shoe, gender, email)
+            price_df = price_df.append(details)
+
+            details = farfetch.get_shoe(shoe, gender, email)
+            price_df = price_df.append(details)
+
+            
 
         # get prediction for each shoe
 

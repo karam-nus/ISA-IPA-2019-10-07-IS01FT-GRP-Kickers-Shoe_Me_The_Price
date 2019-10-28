@@ -25,11 +25,17 @@ $(document).ready(function () {
         noWrap: false,
         indicators: true
     });
+
+    $('.chips-placeholder').chips({
+    placeholder: 'E.g Nike Zoom Freak 1',
+    secondaryPlaceholder: '+Tag',
+  });
     $('.chips-autocomplete').chips({
         autocompleteOptions: {
             data: shoe_data,
             limit: Infinity,
-            minLength: 1
+            minLength: 1,
+            placeholder: 'E.g Nike Zoom Freak 1'
         },
         onChipAdd: function (e, chip) {
             shoe = chip.innerHTML.substr(0, chip.innerHTML.indexOf("<i"));

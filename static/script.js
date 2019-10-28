@@ -21,7 +21,10 @@ var shoe_data = {
 }
 var selected_data = [];
 $(document).ready(function () {
-
+    $('.carousel').carousel({
+        noWrap: false,
+        indicators: true
+    });
     $('.chips-autocomplete').chips({
         autocompleteOptions: {
             data: shoe_data,

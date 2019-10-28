@@ -17,7 +17,7 @@ def price_trend(df, conn):
 
         shoe_df = price_hist.loc[price_hist['shoe_name'] == shoe]
 
-        shoe_df.sort_values(['website', 'price_date'])
+        shoe_df.sort_values(['website', 'price_date'], ascending=[True,False])
 
         for com in shoe_df.website.unique():
             

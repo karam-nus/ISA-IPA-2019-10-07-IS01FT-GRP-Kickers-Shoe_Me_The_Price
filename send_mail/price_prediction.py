@@ -56,11 +56,11 @@ def price_trend(df, conn):
 
                 if np.mean(delta) > 0:
 
-                    trend = 'Upwards'
+                    trend = 'Price likely to go up'
 
                 else:
 
-                    trend = 'Downwards'
+                    trend = 'Price likely to go down'
 
                     df['trend'][ind] = trend
 

@@ -5,7 +5,7 @@ def mail_template(df):
 	<title> ABC </title>
 	</head>
 	<body>
-	<table border = "6" style = "background : linear-gradient(to right, #0099ff -81%, #ffffff 100%)" width = 600 height = 600>
+	<table border = "6" style = "background : linear-gradient(to right, #ccff99 0%, #ffffff 100%)" width = 600 height = 600>
 	<th>Shoe name</th><th>Website name</th><th>Price</th><th>Colorware</th><th>Recommendation</th>
 	'''
 
@@ -13,7 +13,7 @@ def mail_template(df):
     # print('[mbt]a')
     for i in range(0, len(df)):
 
-        row = '''<tr ><td align = "center" style="font-family:cursive;"><a href = '''+df["link"][i]+'''>'''+df["name"][i]+'''</a></td><td align = "center" style="font-family:cursive;">'''+df["Company"][i]+'''</td><td align = "center" style="font-family:cursive;">'''+df["price"][i]+'''</td>
+        row = '''<tr ><td align = "center" style="font-family:Helvetica;"><a href = '''+df["link"][i]+'''>'''+df["name"][i]+'''</a></td><td align = "center" style="font-family:Helvetica;">'''+df["Company"][i]+'''</td><td align = "center" style="font-family:Helvetica;">'''+df["price"][i]+'''</td>
 	     <td align = "center"><img src =''' + df["img"][i] + ''' width = 100 height = 100/></td><td>''' + df["trend"][i]+'''</tr>
 	     '''
         # print('[mbt]a',i,row)

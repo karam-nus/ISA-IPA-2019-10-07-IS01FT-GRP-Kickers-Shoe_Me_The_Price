@@ -94,9 +94,9 @@ def get_info_from_mail(selected_messages):
                               gender = 'M'
 
                     # subject = item['value']
-                    subject = lst[1]
+                         subject = lst[1]
                     
-                    print('[mail-bot] :: Request recieved :: '+subject)
+                    print('[mail-bot] :: Request recieved :: ',subject)
                     flag = True
           if(subject and email and flag):
                required_stuff['request_date'] = date_today

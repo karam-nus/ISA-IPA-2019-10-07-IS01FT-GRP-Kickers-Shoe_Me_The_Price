@@ -14,7 +14,7 @@ def worker(functionality, db_connection):
         while True:
              try:
                   import app
-                  print("[website-bot] " + time.ctime() + " {listening}")
+                  print("[website-bot] {listening}")
 
              except Exception as e:
                   print('[rp-wb]Exception in last request.\n', e)
@@ -24,7 +24,7 @@ def worker(functionality, db_connection):
           while True:
                try:
                     gfc.execute_gmail_fetch(db_connection)
-                    print("[mail-bot] " + time.ctime() + " {listening}")
+                    print("[mail-bot] {listening}")
 
                except Exception as e:
                     print('[rp-mb]Exception in last request.\n', e)
@@ -32,15 +32,15 @@ def worker(functionality, db_connection):
                time.sleep(5)
      elif functionality == 'daily-updates':
         while True:
-            if datetime.now().strftime('%H:%M') in ['07:00', '07:05', '07:10']:
-
-              daily_script.daily_updates(db_connection)
-
-            daily_script.instant_updates(db_connection)
-
-            print("[daily-updates]")
-            time.sleep(5)
-
+             try:
+                  if datetime.now().strftime('%H:%M') in ['07:00', '07:05', '07:10']:
+                       daily_script.daily_updates(db_connection)
+                  daily_script.instant_updates(db_connection)
+                  print("[daily-updates]  {listening}")
+             except Exception as e:
+                  print('[rp-du]Exception in last request.\n', e)
+                  pass
+             time.sleep(5)
 
 # if __name__ == '__main__':
 def execute_processes(db_connection):

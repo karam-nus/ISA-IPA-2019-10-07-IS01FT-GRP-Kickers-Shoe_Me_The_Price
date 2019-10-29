@@ -20,13 +20,13 @@ def execute_bots_for_mail(mail_list, conn):
 
     for item in mail_list:
         shoes = item['shoe_names']
-        print(shoes)
+        # print(shoes)
         email = item['subscriber_id']
         gender = item['gender']
-        if(gender=='M'):
-            gender=' men'
-        else:
+        if(gender.lower()=='f'):
             gender=' women'
+        else:
+            gender=' men'
 
         price_df = pd.DataFrame()
         for shoe in shoes.split(','):
@@ -47,14 +47,14 @@ def execute_bots_for_mail(mail_list, conn):
                 price_df = price_df.append(details)'''
 
         # get prediction for each shoe
-        print("Price df created")
-        print(price_df.columns)
+        # print("Price df created")
+        # print(price_df.columns)
         price_df = price_df[price_df.name != "NA"]
-        print("NA removed")
+        # print("NA removed")
         if len(price_df) != 0:
-            print("LEN not 0")
+            # print("LEN not 0")
             price_df_final = pp.price_trend(price_df, conn)
-            print("price trend extracted")
+            # print("price trend extracted")
         # print('[bot-controller]','after price_df assignment')
             mail_body = mbt.mail_template(price_df_final)
         # print('[bot-controller] mailbody ready')
@@ -73,15 +73,15 @@ def execute_bots_for_mail(mail_list, conn):
         message = pm.create_message(email, shoes, mail_body)
         pm.send_message(service, message)
         db.push_price_data(price_df,conn)
-        print("Data pushed")
+        # print("Data pushed")
 
     return
 
 
 def execute_bots_for_daily(inp_details, conn):
     
-    print("{Bot c} - Type of details", type(inp_details))
-    print("{Bot c}",len(inp_details))
+    # print("{Bot c} - Type of details", type(inp_details))
+    # print("{Bot c}",len(inp_details))
     for i in range(0, len(inp_details)):
         price_df = pd.DataFrame()
         email = inp_details['subscriber_id'][i]
@@ -134,7 +134,7 @@ def execute_bots_for_daily(inp_details, conn):
         message = pm.create_message(email, shoes, mail_body)
         pm.send_message(service, message)
         db.push_price_data(price_df,conn)
-        print("Data pushed")
+        # print("Data pushed")
        
         
         db.update_status(inp_details.iloc[i], conn)

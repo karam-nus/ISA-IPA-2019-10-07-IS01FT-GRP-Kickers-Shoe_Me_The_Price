@@ -22,11 +22,11 @@ def create_connection(config, DB_Name = None):
         try:
             if(DB_Name==None):
                 myConnection = psycopg2.connect( host=host, port=port, user=username, password=password)
-                print("Connection with DB server successful!")
+                print("[System] Connection with DB server successful!")
                 success = True
             else:
                 myConnection = psycopg2.connect(host=host, port=port, user=username, password=password, dbname=DB_Name)
-                print("Connection with DB server successful!")
+                print("[System] Connection with DB server successful!")
                 success = True
         except Exception as e:
             print(e)
@@ -99,7 +99,7 @@ def check_Shoe_DB(config,connection):
     databases = pd.read_sql_query(query, connection)
     
     if databases['datname'].count() != 1:
-        print("Database doesn't exist, creating the same...")
+        print("[System] Database doesn't exist, creating the same...")
         connection.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
         cur = connection.cursor()
         create_query = f'CREATE DATABASE {db_name};'

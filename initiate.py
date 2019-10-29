@@ -17,11 +17,11 @@ import run_processes as rp
 config_file = 'configurations.ini'
 file = sys.argv[0]
 pathname = os.path.dirname(file)
-print('[System]Running from %s' % os.path.abspath(pathname))
+print('[System] Running ShoeMeThePrice from %s' % os.path.abspath(pathname))
 #print('file is %s' % file)
 if len(pathname)==0: pathname='.'
 if ('credentials.json' in os.listdir(pathname)):print("[System]Credentials found")
-else:print("[System]Credentials NOT found")
+else:print("[System] Credentials NOT found")
 if config_file in os.listdir(pathname):
      config = configparser.ConfigParser()
      config.read(os.path.join(pathname,config_file))
@@ -37,7 +37,7 @@ if config_file in os.listdir(pathname):
 # 3. check if the tables exist - if not - create
 # 4. Populate predefined table data
 # Handled in DB creation function above
-     print("Env Ready!")
+     print("[System] Env Ready!")
 
 # 5. proceed to start threads
      rp.execute_processes(db_connection)

@@ -1,9 +1,9 @@
 var shoe_data = {
-    'Converse Chuck Taylor All Star High ': null,
-    'Nike Vapormax 2019 Utility ': null,
-    'Jordan Mars 270 ': null,
-    'adidas Superstar ': null,
-    'Nike Tuned 1 ': null,
+    'Nike Air Max': null,
+    'Nike Vapormax': null,
+    'Nike Jordan Mars 270 ': null,
+    'Adidas Superstar ': null,
+    'Nike Nike Joyride': null,
     'Champion Zone 93': null,
     'Nike Air Force 1 Low': null,
     'Nike Tuned 1': null,
@@ -27,7 +27,7 @@ $(document).ready(function () {
     });
 
     $('.chips-placeholder').chips({
-    placeholder: 'E.g Nike Zoom Freak 1',
+    placeholder: 'E.g Nike Air Max 1',
     secondaryPlaceholder: '+Tag',
   });
     $('.chips-autocomplete').chips({

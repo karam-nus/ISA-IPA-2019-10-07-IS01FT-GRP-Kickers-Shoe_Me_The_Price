@@ -78,19 +78,20 @@ def execute_bots_for_mail(mail_list, conn):
     return
 
 
-def execute_bots_for_daily(details, conn):
-
-
-    for i in range(0, len(details)):
+def execute_bots_for_daily(inp_details, conn):
+    
+    print("{Bot c} - Type of details", type(inp_details))
+    print("{Bot c}",len(inp_details))
+    for i in range(0, len(inp_details)):
         price_df = pd.DataFrame()
-        email = details['subscriber_id'][i]
-        shoes = details['shoe_names'][i]
-        gender = details['gender'][i]
+        email = inp_details['subscriber_id'][i]
+        shoes = inp_details['shoe_names'][i]
+        gender = inp_details['gender'][i]
 
-        if gender == "M":
-            gender = ' men'
-        else:
+        if gender.lower() == "f":
             gender = ' women'
+        else:
+            gender = ' men'
 
         for shoe in shoes.split(','):
 
@@ -126,7 +127,7 @@ def execute_bots_for_daily(details, conn):
             Example subject - [M] Nike Air Max 1<br><br>
 
             Thank You<br>
-            ShoeMeThePrice<body><html>'''
+            ShoeMeThePrice</body></html>'''
 
     # NEED TO CALL SEND MAIL WITH mail_body AS ARGUMENT
         service = pm.connect_gmail_send()
@@ -134,5 +135,8 @@ def execute_bots_for_daily(details, conn):
         pm.send_message(service, message)
         db.push_price_data(price_df,conn)
         print("Data pushed")
+       
+        
+        db.update_status(inp_details.iloc[i], conn)
 
-    return 
+    return

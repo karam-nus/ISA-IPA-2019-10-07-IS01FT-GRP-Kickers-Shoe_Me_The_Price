@@ -72,7 +72,7 @@ def push_price_data(price_df,conn):
         shoename = price_df['name'][i]
         website = price_df['Company'][i]
 
-        print(shoename,website)
+        
 
         if 's$' in price_df['price'][i].lower() or '$' in price_df['price'][i].lower():
             price = price_df['price'][i].split('$')[1]
@@ -82,6 +82,8 @@ def push_price_data(price_df,conn):
         elif 'sgd' in price_df['price'][i].lower():
             price = price_df['price'][i].split('SGD')[1].split('.')[0]
             
+        elif 'off' in price_df['price'][i].lower():
+            price = price_df['price'][i].split('Off')[1]
         else:
             price = int(price_df['price'][i])
         
@@ -92,7 +94,7 @@ def push_price_data(price_df,conn):
 
         cur.execute(sql_query, (shoename, website, date_today, price))
 
-        print("query executed")
+        
 
         conn.commit()
 
@@ -160,27 +162,25 @@ def update_status(df,connection):
 
     cur = connection.cursor()
     
-    for i in range(0,len(df)):
 
-        df['status'][i] = 'Processed'
+    df['status'] = 'Processed'
         
-        # sql_query = '''Update subscriber set status = 'Processed' where subscriber_id = '''+ str(df['subscriber_id'][i])+'''
-        # and shoe_names = ''' + df['shoe_names'][i]+'''
-        # and shoe_size = ''' + df['shoe_size'][i]+'''
-        # and gender = ''' + df['gender'][i]+'''
-        # and frequency = ''' + df['frequency'][i]+'''
-        # and request_date = ''' + df['request_date'][i]+'''
-        # and status = 'Pending' '''
+             # sql_query = '''Update subscriber set status = 'Processed' where subscriber_id = '''+ str(df['subscriber_id'][i])+'''
+             # and shoe_names = ''' + df['shoe_names'][i]+'''
+             # and shoe_size = ''' + df['shoe_size'][i]+'''
+             # and gender = ''' + df['gender'][i]+'''
+             # and frequency = ''' + df['frequency'][i]+'''
+             # and request_date = ''' + df['request_date'][i]+'''
+             # and status = 'Pending' '''
+    sql_query = "Update subscriber set status = 'Processed' where subscriber_id =\'" + str(df['subscriber_id'])+ "\' and shoe_names =\'" + df['shoe_names']+ "\' and shoe_size =  \'"+ df['shoe_size']+ "\' and gender =  \'"+ df['gender']+"\' and frequency =  \'"+ df['frequency']+"\' and request_date =  \'"+ df['request_date']+"\' and status = 'Pending'"
+    
+    print(sql_query)
 
-        sql_query = "Update subscriber set status = 'Processed' where subscriber_id =\'" + str(df['subscriber_id'][i])+ "\' and shoe_names =\'" + df['shoe_names'][i]+ "\' and shoe_size =  \'"+ df['shoe_size'][i]+ "\' and gender =  \'"+ df['gender'][i]+"\' and frequency =  \'"+ df['frequency'][i]+"\' and request_date =  \'"+ df['request_date'][i]+"\' and status = 'Pending'"
+    cur.execute(sql_query)
 
-        print(sql_query)
+    print("query executed")
 
-        cur.execute(sql_query)
+    connection.commit()
 
-        print("query executed")
-
-        connection.commit()
-
-        print("DB comit")
+    print("DB comit")
 

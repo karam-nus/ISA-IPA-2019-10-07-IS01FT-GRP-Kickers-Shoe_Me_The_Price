@@ -30,10 +30,6 @@ def worker(functionality, db_connection):
                     print('[rp-mb]Exception in last request.\n', e)
                     pass
                time.sleep(5)
-     elif functionality == 'chat-bot':
-        while True:
-             print("[chat-bot]")
-             time.sleep(90)
      elif functionality == 'daily-updates':
         while True:
             if datetime.now().strftime('%H:%M') in ['07:00', '07:05', '07:10']:
@@ -43,12 +39,12 @@ def worker(functionality, db_connection):
             daily_script.instant_updates(db_connection)
 
             print("[daily-updates]")
-            time.sleep(10)
+            time.sleep(5)
 
 
 # if __name__ == '__main__':
 def execute_processes(db_connection):
-   functionality = ["website-bot", "mail-bot","chat-bot","daily-updates"]
+   functionality = ["website-bot", "mail-bot","daily-updates"]
    for i in functionality:
         threading.Thread(target=worker, args=(i,db_connection)).start()
 

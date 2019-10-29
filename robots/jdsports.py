@@ -14,7 +14,7 @@ def get_shoe(shoe_name, g, email):
     t.init(visual_automation=True)
     t.url('https://www.jdsports.com.sg/')
     t.wait(5)
-    final_command =  shoe_name + '[enter]'
+    final_command =  shoe_name + " shoes" + '[enter]'
     t.keyboard('[esc]')
     t.type('//input[@id = "srchInput"]', final_command )
     #t.click('//input[@id ="srchButton"]')
@@ -72,7 +72,9 @@ def get_shoe(shoe_name, g, email):
             details.append({"email": email, "name": "NA", "price": "NA",
                                     "img": "NA", "Company": "JDsports", "link" : "NA"})
     #t.close()
-
-    print(details)
+    if len(details)==0:
+        details.append({"email": email, "name": "NA", "price": "NA",
+                        "img": "NA", "Company": "JDsports", "link": "NA"})
+    print("JD BOT",details)
     return details
     # shoe_name,gender, email

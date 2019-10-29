@@ -18,6 +18,11 @@ def get_shoe(shoe, gender, email):
                     f'(//li[@data-test="productCard"])[{i}]//div[@data-test="information"]/p')
                 price = t.read(
                     f'(//li[@data-test="productCard"])[{i}]//div[@data-test="information"]/div').replace('$', '')
+                
+                if 'Off' in price:
+                    price = price.split('Off')[1]
+                    
+                    
                 img = t.read(f'(//li[@data-test="productCard"])[{i}]//img/@src')
                 link = "https://www.farfetch.com" + t.read(f'(//li[@data-test="productCard"])[{i}]/a/@href')
                 details.append({"email": email, "name": name,
@@ -40,6 +45,9 @@ def get_shoe(shoe, gender, email):
                     f'(//li[@data-test="productCard"])[{i}]//div[@data-test="information"]/p')
                 price = t.read(
                     f'(//li[@data-test="productCard"])[{i}]//div[@data-test="information"]/div').replace('$', '')
+                if 'Off' in price:
+                    price = price.split('Off')[1]
+                    
                 img = t.read(f'(//li[@data-test="productCard"])[{i}]//img/@src')
                 link = "https://www.farfetch.com" + t.read(f'(//li[@data-test="productCard"])[{i}]/a/@href')
                 details.append({"email": email, "name": name,
@@ -60,6 +68,9 @@ def get_shoe(shoe, gender, email):
                     f'(//li[@data-test="productCard"])[{i}]//div[@data-test="information"]/p')
                 price = t.read(
                     f'(//li[@data-test="productCard"])[{i}]//div[@data-test="information"]/div').replace('$', '')
+                if 'Off' in price:
+                    price = price.split('Off')[1]
+                
                 img = t.read(f'(//li[@data-test="productCard"])[{i}]//img/@src')
                 link = "https://www.farfetch.com" + t.read(f'(//li[@data-test="productCard"])[{i}]/a/@href')
                 details.append({"email": email, "name": name,

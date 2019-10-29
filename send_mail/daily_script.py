@@ -6,14 +6,16 @@ from robots import bot_controller
 def daily_updates(conn):
 
 	data = p.db_updates.get_customer_data(conn)
+	
+	
 
 	bot_controller.execute_bots_for_daily(data, conn)
 
-	p.db_updates.update_status(data, conn)
 
 def instant_updates(conn):
 	data = p.db_updates.get_customer_data_instant(conn)
-
+	
+	print("{daily script c} - Type of data", type(data))
+	
 	bot_controller.execute_bots_for_daily(data, conn)
 
-	p.db_updates.update_status(data, conn)

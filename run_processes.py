@@ -32,8 +32,11 @@ def worker(functionality, db_connection):
                time.sleep(5)
      elif functionality == 'daily-updates':
         while True:
-            if datetime.now().strftime('%H:%M') in ['07:00', '07:05', '07:10']:
+            t = datetime.now().strftime('%H:%M')
+            print(t)
+            if datetime.now().strftime('%H:%M') in ['07:00', '07:01', '07:02']:
 
+              print("Time matched")
               daily_script.daily_updates(db_connection)
 
             daily_script.instant_updates(db_connection)

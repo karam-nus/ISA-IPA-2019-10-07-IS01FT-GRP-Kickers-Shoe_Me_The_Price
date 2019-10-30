@@ -25,7 +25,7 @@ def subscribe():
     try:
         weekly_update = form_data['su']
         if weekly_update == 'on':
-            weekly_update = True
+            weekly_update = 'Daily'
     except:
         pass
     #This is the data, from here on can send the data to a db.

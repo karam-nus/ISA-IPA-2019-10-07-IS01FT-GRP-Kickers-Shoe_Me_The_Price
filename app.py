@@ -1,6 +1,6 @@
 from flask import Flask,render_template,request
 from robots import bot_controller
-import view
+import view.website_connection as wc
 import persistence as p
 
 app = Flask(__name__)
@@ -30,7 +30,7 @@ def subscribe():
 
     details = {'email':email, 'shoes':selected_shoe, 'size':shoe_size, 'updates':weekly_update, 'gender':gender}
     
-    conn = view.website_connection.config_connect()
+    conn = wc.config_connect()
     p.db_updates.push_to_shoe_request(conn, details)
     
     return render_template('success.html')

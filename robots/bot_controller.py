@@ -80,8 +80,6 @@ def execute_bots_for_mail(mail_list, conn):
 
 def execute_bots_for_daily(inp_details, conn):
     
-    print("{Bot c} - Type of details", type(inp_details))
-    print("{Bot c}",len(inp_details))
     for i in range(0, len(inp_details)):
         price_df = pd.DataFrame()
         email = inp_details['subscriber_id'][i]

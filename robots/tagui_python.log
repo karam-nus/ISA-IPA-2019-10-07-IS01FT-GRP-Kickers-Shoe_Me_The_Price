@@ -1,102 +1,94 @@
 
-START - automation started - Mon Oct 28 2019 14:29:08 GMT+0800 (Malay Peninsula Standard Time)
+START - automation started - Wed Oct 30 2019 12:11:48 GMT+0800 (Malay Peninsula Standard Time)
 
 LIVE MODE - type done to quit
  [TAGUI][STARTED]
 [TAGUI][0] - listening for inputs
-[TAGUI][1] - https://www.farfetch.com/sg/
+[TAGUI][1] - https://www.nike.com/sg/
 [TAGUI][1] - listening for inputs
-[TAGUI][2] - exist_result = exist('(//span[@class="tabs__span"])[.="Men"]').toString()
+[TAGUI][2] - exist_result = exist('//input[@id = "TypeaheadSearchInput"]').toString()
 [TAGUI][2] - listening for inputs
 [TAGUI][3] - dump exist_result to tagui_python.txt
 [TAGUI][3] - listening for inputs
-[TAGUI][4] - click (//span[@class="tabs__span"])[.="Men"]
+[TAGUI][4] - type //input[@id = "TypeaheadSearchInput"] as Nike air max 1 shoes
 [TAGUI][4] - listening for inputs
-[TAGUI][5] - exist_result = exist('//input[@class="js-searchboxABTest force-ltr"]').toString()
+[TAGUI][5] - exist_result = exist('//button[@class = "btn-search z2 bg-transparent"]').toString()
 [TAGUI][5] - listening for inputs
 [TAGUI][6] - dump exist_result to tagui_python.txt
 [TAGUI][6] - listening for inputs
-[TAGUI][7] - type //input[@class="js-searchboxABTest force-ltr"] as Nike air max 1 Shoes
+[TAGUI][7] - click //button[@class = "btn-search z2 bg-transparent"]
 [TAGUI][7] - listening for inputs
-[TAGUI][8] - exist_result = exist('//form[@class="ff-search"]/button').toString()
+[TAGUI][8] - exist_result = exist('(//span[contains(@class,"filter-item")])[2]').toString()
 [TAGUI][8] - listening for inputs
 [TAGUI][9] - dump exist_result to tagui_python.txt
 [TAGUI][9] - listening for inputs
-[TAGUI][10] - click //form[@class="ff-search"]/button
+[TAGUI][10] - click (//span[contains(@class,"filter-item")])[2]
 [TAGUI][10] - listening for inputs
-[TAGUI][11] - count_result = count('(//li[@data-test="productCard"])').toString()
+[TAGUI][11] - count_result = count('//a[@class ="product-card__link-overlay"]').toString()
 [TAGUI][11] - listening for inputs
 [TAGUI][12] - dump count_result to tagui_python.txt
 [TAGUI][12] - listening for inputs
-[TAGUI][13] - exist_result = exist('(//li[@data-test="productCard"])[1]//div[@data-test="information"]/p').toString()
+[TAGUI][13] - exist_result = exist('(//a[@class = "product-card__link-overlay"])[1]').toString()
 [TAGUI][13] - listening for inputs
 [TAGUI][14] - dump exist_result to tagui_python.txt
 [TAGUI][14] - listening for inputs
-[TAGUI][15] - read (//li[@data-test="productCard"])[1]//div[@data-test="information"]/p to read_result
+[TAGUI][15] - read (//a[@class = "product-card__link-overlay"])[1] to read_result
 [TAGUI][15] - listening for inputs
 [TAGUI][16] - dump read_result to tagui_python.txt
 [TAGUI][16] - listening for inputs
-[TAGUI][17] - exist_result = exist('(//li[@data-test="productCard"])[1]//div[@data-test="information"]/div').toString()
+[TAGUI][17] - exist_result = exist('(//div[@data-test="product-price"])[1]').toString()
 [TAGUI][17] - listening for inputs
 [TAGUI][18] - dump exist_result to tagui_python.txt
 [TAGUI][18] - listening for inputs
-[TAGUI][19] - read (//li[@data-test="productCard"])[1]//div[@data-test="information"]/div to read_result
+[TAGUI][19] - read (//div[@data-test="product-price"])[1] to read_result
 [TAGUI][19] - listening for inputs
 [TAGUI][20] - dump read_result to tagui_python.txt
 [TAGUI][20] - listening for inputs
-[TAGUI][21] - exist_result = exist('(//li[@data-test="productCard"])[1]//img/@src').toString()
+[TAGUI][21] - exist_result = exist('(//div[contains(@class, "product-card__hero")]/picture/img)[1]/@src').toString()
 [TAGUI][21] - listening for inputs
 [TAGUI][22] - dump exist_result to tagui_python.txt
 [TAGUI][22] - listening for inputs
-[TAGUI][23] - read (//li[@data-test="productCard"])[1]//img/@src to read_result
+[TAGUI][23] - read (//div[contains(@class, "product-card__hero")]/picture/img)[1]/@src to read_result
 [TAGUI][23] - listening for inputs
 [TAGUI][24] - dump read_result to tagui_python.txt
 [TAGUI][24] - listening for inputs
-[TAGUI][25] - exist_result = exist('(//li[@data-test="productCard"])[2]//div[@data-test="information"]/p').toString()
+[TAGUI][25] - exist_result = exist('(//a[contains(@class,"product-card")])[1]/@href').toString()
 [TAGUI][25] - listening for inputs
 [TAGUI][26] - dump exist_result to tagui_python.txt
 [TAGUI][26] - listening for inputs
-[TAGUI][27] - read (//li[@data-test="productCard"])[2]//div[@data-test="information"]/p to read_result
+[TAGUI][27] - read (//a[contains(@class,"product-card")])[1]/@href to read_result
 [TAGUI][27] - listening for inputs
 [TAGUI][28] - dump read_result to tagui_python.txt
 [TAGUI][28] - listening for inputs
-[TAGUI][29] - exist_result = exist('(//li[@data-test="productCard"])[2]//div[@data-test="information"]/div').toString()
+[TAGUI][29] - exist_result = exist('(//a[@class = "product-card__link-overlay"])[2]').toString()
 [TAGUI][29] - listening for inputs
 [TAGUI][30] - dump exist_result to tagui_python.txt
 [TAGUI][30] - listening for inputs
-[TAGUI][31] - read (//li[@data-test="productCard"])[2]//div[@data-test="information"]/div to read_result
+[TAGUI][31] - read (//a[@class = "product-card__link-overlay"])[2] to read_result
 [TAGUI][31] - listening for inputs
 [TAGUI][32] - dump read_result to tagui_python.txt
 [TAGUI][32] - listening for inputs
-[TAGUI][33] - exist_result = exist('(//li[@data-test="productCard"])[2]//img/@src').toString()
+[TAGUI][33] - exist_result = exist('(//div[@data-test="product-price"])[2]').toString()
 [TAGUI][33] - listening for inputs
 [TAGUI][34] - dump exist_result to tagui_python.txt
 [TAGUI][34] - listening for inputs
-[TAGUI][35] - read (//li[@data-test="productCard"])[2]//img/@src to read_result
+[TAGUI][35] - read (//div[@data-test="product-price"])[2] to read_result
 [TAGUI][35] - listening for inputs
 [TAGUI][36] - dump read_result to tagui_python.txt
 [TAGUI][36] - listening for inputs
-[TAGUI][37] - exist_result = exist('(//li[@data-test="productCard"])[3]//div[@data-test="information"]/p').toString()
+[TAGUI][37] - exist_result = exist('(//div[contains(@class, "product-card__hero")]/picture/img)[2]/@src').toString()
 [TAGUI][37] - listening for inputs
 [TAGUI][38] - dump exist_result to tagui_python.txt
 [TAGUI][38] - listening for inputs
-[TAGUI][39] - read (//li[@data-test="productCard"])[3]//div[@data-test="information"]/p to read_result
+[TAGUI][39] - read (//div[contains(@class, "product-card__hero")]/picture/img)[2]/@src to read_result
 [TAGUI][39] - listening for inputs
 [TAGUI][40] - dump read_result to tagui_python.txt
 [TAGUI][40] - listening for inputs
-[TAGUI][41] - exist_result = exist('(//li[@data-test="productCard"])[3]//div[@data-test="information"]/div').toString()
+[TAGUI][41] - exist_result = exist('(//a[contains(@class,"product-card")])[2]/@href').toString()
 [TAGUI][41] - listening for inputs
 [TAGUI][42] - dump exist_result to tagui_python.txt
 [TAGUI][42] - listening for inputs
-[TAGUI][43] - read (//li[@data-test="productCard"])[3]//div[@data-test="information"]/div to read_result
+[TAGUI][43] - read (//a[contains(@class,"product-card")])[2]/@href to read_result
 [TAGUI][43] - listening for inputs
 [TAGUI][44] - dump read_result to tagui_python.txt
 [TAGUI][44] - listening for inputs
-[TAGUI][45] - exist_result = exist('(//li[@data-test="productCard"])[3]//img/@src').toString()
-[TAGUI][45] - listening for inputs
-[TAGUI][46] - dump exist_result to tagui_python.txt
-[TAGUI][46] - listening for inputs
-[TAGUI][47] - read (//li[@data-test="productCard"])[3]//img/@src to read_result
-[TAGUI][47] - listening for inputs
-[TAGUI][48] - dump read_result to tagui_python.txt
-[TAGUI][48] - listening for inputs

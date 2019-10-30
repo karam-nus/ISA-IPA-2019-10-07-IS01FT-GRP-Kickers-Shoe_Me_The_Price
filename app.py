@@ -23,7 +23,7 @@ def subscribe():
     try:
         weekly_update = form_data['su']
         if weekly_update == 'on':
-            weekly_update = True
+            weekly_update = 'Daily'
     except:
         pass
     global details 

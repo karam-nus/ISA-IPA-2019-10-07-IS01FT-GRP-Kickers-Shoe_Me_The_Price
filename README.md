@@ -66,11 +66,11 @@ Once the application is running, choose any of the two channels for shoe price u
 Web-interface - 
 - Go to http://127.0.0.1:5000/. This acts as a front-end where the user can request a query to the application. A form will be presented (figure A).
 ![alt text](https://github.com/karamjotsinghmalik/ISA-IPA-2019-10-07-IS01FT-GRP-Kickers-Shoe_Me_The_Price/blob/master/templates/UI.png)
-->Figure A : Web interface of the application<-
+Figure A : Web interface of the application
 
 - Complete and submit the form. One can enter more than one shoe names. Press Enter after key-ing in every shoe-name- to make shoe-name chips. On completion, confirmation screen (Figure B) will be shown.
 ![alt text](https://github.com/karamjotsinghmalik/ISA-IPA-2019-10-07-IS01FT-GRP-Kickers-Shoe_Me_The_Price/blob/master/templates/Submit.png)
-->Figure B: Successful submission of request<-
+Figure B: Successful submission of request
 
 - Once the request is successful and correct, the bots will execute on the hosting machine  and will mail the request user with appropriate details in response.
 

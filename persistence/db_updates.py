@@ -62,7 +62,7 @@ def get_price_data(conn):
 
 def push_price_data(price_df,conn):
 
-    print("inside push price")
+#    print("inside push price")
     date_today = datetime.now().strftime('%d-%m-%Y')
 
     cur = conn.cursor()
@@ -88,7 +88,7 @@ def push_price_data(price_df,conn):
             price = int(price_df['price'][i])
         
         price = int(price)
-        print(price)
+#        print(price)
 
         sql_query = "INSERT INTO shoe_price_hist (shoe_name,website,price_date,price) VALUES (%s, %s, %s, %s)"
 
@@ -98,7 +98,7 @@ def push_price_data(price_df,conn):
 
         conn.commit()
 
-        print("DB comit")
+#        print("DB comit")
 
 
 def push_df_to_subscriberDB(connection, df):
@@ -174,13 +174,13 @@ def update_status(df,connection):
              # and status = 'Pending' '''
     sql_query = "Update subscriber set status = 'Processed' where subscriber_id =\'" + str(df['subscriber_id'])+ "\' and shoe_names =\'" + df['shoe_names']+ "\' and shoe_size =  \'"+ df['shoe_size']+ "\' and gender =  \'"+ df['gender']+"\' and frequency =  \'"+ df['frequency']+"\' and request_date =  \'"+ df['request_date']+"\' and status = 'Pending'"
     
-    print(sql_query)
+#    print(sql_query)
 
     cur.execute(sql_query)
 
-    print("query executed")
+#    print("query executed")
 
     connection.commit()
 
-    print("DB comit")
+#    print("DB comit")
 

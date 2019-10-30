@@ -14,7 +14,7 @@ def get_shoe(shoe, g, email):
 	t.wait(3)
 
 	#### for men
-	print(gender)
+#	print(gender)
 	if gender == " men":
 		
 
@@ -31,7 +31,7 @@ def get_shoe(shoe, g, email):
 				img = t.read(f'(//picture[contains(@class, "fl-picture")]/img/@srcset)[{k+1}]')
 				img = 'http:' + img
 				link = t.read(f'(//div[@class = "fl-product-tile--basic"])[{k}]/a/@href')
-				print(name , price, img)
+#				print(name , price, img)
 				details.append({"email" : email,"name" : name, "price": price, "img": img,"Company" : "Footlocker", "link" : link})
 		else:
 			details.append({"email" : email,"name" : "NA", "price": "NA", "img": "NA","Company" : "Footlocker", "link" : "NA"})	
@@ -50,7 +50,7 @@ def get_shoe(shoe, g, email):
 				img = t.read(f'(//picture[contains(@class, "fl-picture")]/img/@srcset)[{k+1}]')
 				img = 'http:' + img
 				link = t.read(f'(//div[@class = "fl-product-tile--basic"])[{k}]/a/@href')
-				print(name , price, img)
+#				print(name , price, img)
 				details.append({"email" : email,"name" : name, "price": price, "img": img,"Company" : "Footlocker", "link" : link})
 		else:
 			details.append({"email" : email,"name" : "NA", "price": "NA", "img": "NA","Company" : "Footlocker", "link" : "NA"})

@@ -75,6 +75,6 @@ def get_shoe(shoe_name, g, email):
     if len(details)==0:
         details.append({"email": email, "name": "NA", "price": "NA",
                         "img": "NA", "Company": "JD", "link": "NA"})
-    print("JD BOT",details)
+#    print("JD BOT",details)
     return details
     # shoe_name,gender, email

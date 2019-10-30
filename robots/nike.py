@@ -22,7 +22,7 @@ def get_shoe(shoe, g, email):
 	
 	t.wait(1)
 	count = t.count('//a[@class ="product-card__link-overlay"]')
-	print('[nike]',count)
+#	print('[nike]',count)
 	details = []
 
 	if count != 0:
@@ -37,5 +37,5 @@ def get_shoe(shoe, g, email):
 	else:
 		details.append({"email" : email, "name" : "NA", "price": "NA", "img": "NA","Company" : "Nike", "link": "NA"})
 
-	print(details)
+#	print(details)
 	return details

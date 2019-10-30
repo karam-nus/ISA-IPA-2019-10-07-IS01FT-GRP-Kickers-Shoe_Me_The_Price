@@ -27,7 +27,7 @@ def get_shoe(shoe, gender, email):
                 link = "https://www.farfetch.com" + t.read(f'(//li[@data-test="productCard"])[{i}]/a/@href')
                 details.append({"email": email, "name": name,
                                 "price": price, "img": img, "Company": "Farfetch", "link" : link})
-                print(f"name: {name}, price: {price} img_source = {img}")
+#                print(f"name: {name}, price: {price} img_source = {img}")
         else:
             details.append({"email": email, "name": "NA",
                                 "price": "NA", "img": "NA", "Company": "Farfetch", "link" : "NA"})
@@ -52,7 +52,7 @@ def get_shoe(shoe, gender, email):
                 link = "https://www.farfetch.com" + t.read(f'(//li[@data-test="productCard"])[{i}]/a/@href')
                 details.append({"email": email, "name": name,
                                 "price": price, "img": img, "Company": "Farfetch", "link" : link})
-                print(f"name: {name}, price: {price} img_source = {img}")
+#                print(f"name: {name}, price: {price} img_source = {img}")
         else:
             details.append({"email": email, "name": "NA",
                                 "price": "NA", "img": "NA", "Company": "Farfetch", "link" : "NA"})
@@ -75,7 +75,7 @@ def get_shoe(shoe, gender, email):
                 link = "https://www.farfetch.com" + t.read(f'(//li[@data-test="productCard"])[{i}]/a/@href')
                 details.append({"email": email, "name": name,
                                 "price": price, "img": img, "Company": "Farfetch", "link" : link})
-                print(f"name: {name}, price: {price} img_source = {img}")
+#                print(f"name: {name}, price: {price} img_source = {img}")
         else:
             details.append({"email": email, "name": "NA",
                                 "price": "NA", "img": "NA", "Company": "Farfetch", "link" : "NA"})

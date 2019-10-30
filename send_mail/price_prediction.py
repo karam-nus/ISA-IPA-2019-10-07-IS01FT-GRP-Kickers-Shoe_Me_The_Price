@@ -54,15 +54,19 @@ def price_trend(df, conn):
                     delta.append(result_trend[i-1] - result_trend[i-2])
                     # #print(i)
 
-                if np.mean(delta) > 0:
+                print("Shoe",shoe,"com",com,"DELTA", np.mean(delta))
+                if np.mean(delta) >= 2:
 
                     trend = 'Price likely to go up'
 
-                else:
+                elif np.mean(delta) <= -2:
 
                     trend = 'Price likely to go down'
 
-                    df['trend'][ind] = trend
+                else:
+                    trend = 'Price likely to remain same'
+                
+                df['trend'][ind] = trend
 
                 ##print(shoe, com, trend)
             

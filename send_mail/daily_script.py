@@ -15,7 +15,7 @@ def daily_updates(conn):
 def instant_updates(conn):
 	data = p.db_updates.get_customer_data_instant(conn)
 	
-	# print("{daily script c} - Type of data", type(data))
+
 	
 	bot_controller.execute_bots_for_daily(data, conn)
 

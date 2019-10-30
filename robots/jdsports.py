@@ -33,10 +33,10 @@ def get_shoe(shoe_name, g, email):
                     img = t.read(f'(//a[@class="itemImage"]/picture/img/@srcset)[{i}]')
                     link = "https://www.jdsports.com.sg" + t.read(f'(//span[@class = "itemTitle"])[{i}]/a/@href')
                     details.append({"email": email, "name": name,
-                                    "price": price, "img": img, "Company": "JDsports", "link" : link})
+                                    "price": price, "img": img, "Company": "JD", "link" : link})
             else:
                 details.append({"email": email, "name": "NA",
-                                    "price": "NA", "img": "NA", "Company": "JDsports", "link" : "NA"})
+                                    "price": "NA", "img": "NA", "Company": "JD", "link" : "NA"})
 
     elif g == ' women':
         if t.read('(//a[@data-e2e="plp-filterMenu-catItem"]/span)[contains(.,"Women")]'):
@@ -52,10 +52,10 @@ def get_shoe(shoe_name, g, email):
                     img = t.read(f'(//a[@class="itemImage"]/picture/img/@srcset)[{i}]')
                     link = "https://www.jdsports.com.sg" + t.read(f'(//span[@class = "itemTitle"])[{i}]/a/@href')
                     details.append({"email": email, "name": name, "price": price,
-                                    "img": img, "Company": "JDsports", "link" : link})
+                                    "img": img, "Company": "JD", "link" : link})
             else:
                 details.append({"email": email, "name": "NA", "price": "NA",
-                                    "img": "NA", "Company": "JDsports", "link" : "NA"})
+                                    "img": "NA", "Company": "JD", "link" : "NA"})
     else:
         count = t.count('//ul[@id="productListMain"]//li[@class="productListItem "]')
         t.wait(3)
@@ -67,14 +67,14 @@ def get_shoe(shoe_name, g, email):
                 img = t.read(f'(//a[@class="itemImage"]/picture/img/@srcset)[{i}]')
                 link = "https://www.jdsports.com.sg" + t.read(f'(//span[@class = "itemTitle"])[{i}]/a/@href')
                 details.append({"email": email, "name": name, "price": price,
-                                "img": img, "Company": "JDsports", "link" : link})
+                                "img": img, "Company": "JD", "link" : link})
         else:
             details.append({"email": email, "name": "NA", "price": "NA",
-                                    "img": "NA", "Company": "JDsports", "link" : "NA"})
+                                    "img": "NA", "Company": "JD", "link" : "NA"})
     #t.close()
     if len(details)==0:
         details.append({"email": email, "name": "NA", "price": "NA",
-                        "img": "NA", "Company": "JDsports", "link": "NA"})
+                        "img": "NA", "Company": "JD", "link": "NA"})
     print("JD BOT",details)
     return details
     # shoe_name,gender, email

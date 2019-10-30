@@ -1,6 +1,7 @@
 # SECTION 1: PROJECT TITLE
-Shoe Me The Price (SMTP)
-An Intelligent Software Agent that scrapes various footwear websites to provide a price comparison --
+Shoe Me The Price (SMTP) -- 
+
+AN IPA AGENT FOR GETTING THE BEST ONLINE SHOE PRICES
 
 ![alt text](https://github.com/karamjotsinghmalik/ISA-IPA-2019-10-07-IS01FT-GRP-Kickers-Shoe_Me_The_Price/blob/master/templates/Poster.png)
 
@@ -22,7 +23,7 @@ SYSTEM DESIGN AND WORKING
 
 | Official Full Name|Student ID| Work Scope  |Email|
 |:---------:|:-------------:|:-----:|:----:|
-|Karamjot Singh|A0198470U		| Algorithm design for Rule-based approach, Initial survey, PyKE, Benchmarking, Report, Video Editing	|	singh@u.nus.edu|
+|Karamjot Singh|A0198470U		| Application design; Market research; Creation of RPA robots; Code for - mail-bot, sending & receiving mail responses, Env & DB creation scripts, DB update modules, Gmail API integration; Parallel processing of multi-channel scripts; Report; Video Editing	|	singh@u.nus.edu|
 |Kartik Chopra|A0198483L		|Initial survey for algorithm design, Algorithm Design, Question based knowledge system, Backend code for time calculation 	|kartik@u.nus.edu|
 |Tarun Rajkumar|A0198483L		|Initial survey for algorithm design, Algorithm Design, Question based knowledge system, Backend code for time calculation 	|kartik@u.nus.edu|
 
@@ -62,8 +63,10 @@ Application execution -
 
 Example flows - 
 Once the application is running, choose any of the two channels for shoe price utility - 
+1. Web-interface
+2. Mail service
 
-Web-interface - 
+1 Web-interface - 
 - Go to http://127.0.0.1:5000/. This acts as a front-end where the user can request a query to the application. A form will be presented (figure A).
 ![alt text](https://github.com/karamjotsinghmalik/ISA-IPA-2019-10-07-IS01FT-GRP-Kickers-Shoe_Me_The_Price/blob/master/templates/UI.png)
 Figure A : Web interface of the application
@@ -74,7 +77,7 @@ Figure B: Successful submission of request
 
 - Once the request is successful and correct, the bots will execute on the hosting machine  and will mail the request user with appropriate details in response.
 
-Mail service - 
+2. Mail service - 
 - Compose & send a mail with the following details - 
     To - shoemetheprice@gmail.com
     Subject - [Gender] Shoe_Name_1, Shoe_Name2...
@@ -88,4 +91,4 @@ Mail service -
 - Running the application from home folder is mandatory. Firstly, please reach the project’s home folder & only then run the application.
 
 # SECTION 6: PROJECT REPORT
-[https://github.com/validation7407/IRS-MR-RS-2019-09-22-IS1FT-GRP-Validation7407-ITLMS/blob/master/FinalReport/ITLMS_Group14_Project_Report.pdf]
+[https://github.com/karamjotsinghmalik/ISA-IPA-2019-10-07-IS01FT-GRP-Kickers-Shoe_Me_The_Price/blob/master/data/Project_Report_STMP_TheKickers.pdf]

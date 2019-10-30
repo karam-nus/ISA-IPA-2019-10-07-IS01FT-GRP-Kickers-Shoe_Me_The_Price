@@ -88,4 +88,4 @@ Mail service -
 - Running the application from home folder is mandatory. Firstly, please reach the project’s home folder & only then run the application.
 
 # SECTION 6: PROJECT REPORT
-[https://github.com/validation7407/IRS-MR-RS-2019-09-22-IS1FT-GRP-Validation7407-ITLMS/blob/master/FinalReport/ITLMS_Group14_Project_Report.pdf]
+[https://github.com/karamjotsinghmalik/ISA-IPA-2019-10-07-IS01FT-GRP-Kickers-Shoe_Me_The_Price/blob/master/data/Project_Report_STMP_TheKickers.pdf]

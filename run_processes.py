@@ -33,10 +33,10 @@ def worker(functionality, db_connection):
      elif functionality == 'daily-updates':
         while True:
             t = datetime.now().strftime('%H:%M')
-            print(t)
+            #print(t)
             if datetime.now().strftime('%H:%M') in ['07:00', '07:01', '07:02']:
 
-              print("Time matched")
+              #print("Time matched")
               daily_script.daily_updates(db_connection)
 
             daily_script.instant_updates(db_connection)

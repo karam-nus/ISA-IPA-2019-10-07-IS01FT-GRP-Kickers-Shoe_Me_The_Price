@@ -16,6 +16,6 @@ def ua_bot(t,search_query):
           name = t.read(f'//div[contains(@class," tile ")][{item}]//div[contains(@class,"name")]')
           cost = t.read(f'//div[contains(@class," tile ")][{item}]//div[contains(@class,"pricing")]')
           final_list.append((name,cost))
-          print(item,name,cost)
+#          print(item,name,cost)
      t.close()
      return final_list

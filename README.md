@@ -64,26 +64,28 @@ Example flows -
 Once the application is running, choose any of the two channels for shoe price utility - 
 
 Web-interface - 
-Go to http://127.0.0.1:5000/. This acts as a front-end where the user can request a query to the application. A form will be presented (figure A).
+- Go to http://127.0.0.1:5000/. This acts as a front-end where the user can request a query to the application. A form will be presented (figure A).
 ![alt text](https://github.com/karamjotsinghmalik/ISA-IPA-2019-10-07-IS01FT-GRP-Kickers-Shoe_Me_The_Price/blob/master/templates/UI.png)
 Figure A : Web interface of the application
-Complete and submit the form. One can enter more than one shoe names. Press Enter after key-ing in every shoe-name- to make shoe-name chips. On completion, confirmation screen (Figure B) will be shown.
+
+- Complete and submit the form. One can enter more than one shoe names. Press Enter after key-ing in every shoe-name- to make shoe-name chips. On completion, confirmation screen (Figure B) will be shown.
 ![alt text](https://github.com/karamjotsinghmalik/ISA-IPA-2019-10-07-IS01FT-GRP-Kickers-Shoe_Me_The_Price/blob/master/templates/Submit.png)
 Figure B: Successful submission of request
-Once the request is successful and correct, the bots will execute on the hosting machine  and will mail the request user with appropriate details in response.
+
+- Once the request is successful and correct, the bots will execute on the hosting machine  and will mail the request user with appropriate details in response.
 
 Mail service - 
-Compose & send a mail with the following details - 
-To - shoemetheprice@gmail.com
-Subject - [Gender] Shoe_Name_1, Shoe_Name2...
-E.g. 1 [M] Nike Air Max 1
-E.g. 2 [F] Nike Joyride, Nike Vapourmax
-E.g. 3 [M] Nike Free
-Once the request is successful and correct, the bots will execute on the hosting machine  and will mail the request user with appropriate details.
+- Compose & send a mail with the following details - 
+    To - shoemetheprice@gmail.com
+    Subject - [Gender] Shoe_Name_1, Shoe_Name2...
+        E.g. 1 [M] Nike Air Max 1
+        E.g. 2 [F] Nike Joyride, Nike Vapourmax
+        E.g. 3 [M] Nike Free
+- Once the request is successful and correct, the bots will execute on the hosting machine  and will mail the request user with appropriate details.
 
  Notes  - 
-It is advisable to let the machine execute the flows unaltered, meaning not to perform actions on the system which is being used as the server for this application. Also, advisable to not alter the  chrome browser execution window.
-Running the application from home folder is mandatory. Firstly, please reach the project’s home folder & only then run the application.
+- It is advisable to let the machine execute the flows unaltered, meaning not to perform actions on the system which is being used as the server for this application. Also, advisable to not alter the  chrome browser execution window.
+- Running the application from home folder is mandatory. Firstly, please reach the project’s home folder & only then run the application.
 
 # SECTION 6: PROJECT REPORT
 [https://github.com/validation7407/IRS-MR-RS-2019-09-22-IS1FT-GRP-Validation7407-ITLMS/blob/master/FinalReport/ITLMS_Group14_Project_Report.pdf]

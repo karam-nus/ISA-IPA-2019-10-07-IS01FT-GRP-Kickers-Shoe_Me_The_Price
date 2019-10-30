@@ -10,12 +10,19 @@ def get_shoe(shoe, g, email):
 	t.init(visual_automation = True)
 	t.url('https://www.nike.com/sg/')
 
-	t.type('//input[@id = "TypeaheadSearchInput"]', shoe  + " shoes" + gender)
+	t.type('//input[@id = "TypeaheadSearchInput"]', shoe  + " shoes")
 
 	t.click('//button[@class = "btn-search z2 bg-transparent"]')
 	t.wait(3)
-	count = t.count('//a[contains(@class , "product-card__link-overlay")]')
-	# print('[nike]',count)
+
+	if gender == " men":
+		t.click('(//span[contains(@class,"filter-item")])[1]')
+	elif gender == " women":
+		t.click('(//span[contains(@class,"filter-item")])[2]')
+	
+	t.wait(1)
+	count = t.count('//a[@class ="product-card__link-overlay"]')
+	print('[nike]',count)
 	details = []
 
 	if count != 0:
@@ -30,5 +37,5 @@ def get_shoe(shoe, g, email):
 	else:
 		details.append({"email" : email, "name" : "NA", "price": "NA", "img": "NA","Company" : "Nike", "link": "NA"})
 
-	#t.close()
+	print(details)
 	return details

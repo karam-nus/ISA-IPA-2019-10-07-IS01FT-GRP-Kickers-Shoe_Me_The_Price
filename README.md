@@ -66,7 +66,7 @@ Once the application is running, choose any of the two channels for shoe price u
 1. Web-interface
 2. Mail service
 
-1. Web-interface - 
+ 1. Web-interface - 
 - Go to http://127.0.0.1:5000/. This acts as a front-end where the user can request a query to the application. A form will be presented (figure A).
 ![alt text](https://github.com/karamjotsinghmalik/ISA-IPA-2019-10-07-IS01FT-GRP-Kickers-Shoe_Me_The_Price/blob/master/templates/UI.png)
 Figure A : Web interface of the application

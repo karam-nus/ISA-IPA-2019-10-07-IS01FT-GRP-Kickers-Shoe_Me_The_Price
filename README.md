@@ -24,8 +24,8 @@ SYSTEM DESIGN AND WORKING
 | Official Full Name|Student ID| Work Scope  |Email|
 |:---------:|:-------------:|:-----:|:----:|
 |Karamjot Singh|A0198470U		| Application design; Market research; Creation of RPA robots; Code for - mail-bot, sending & receiving mail responses, Env & DB creation scripts, DB update modules, Gmail API integration; Parallel processing of multi-channel scripts; Report; Video Editing	|	singh@u.nus.edu|
-|Kartik Chopra|A0198483L		|Initial survey for algorithm design, Algorithm Design, Question based knowledge system, Backend code for time calculation 	|kartik@u.nus.edu|
-|Tarun Rajkumar|A0198483L		|Initial survey for algorithm design, Algorithm Design, Question based knowledge system, Backend code for time calculation 	|kartik@u.nus.edu|
+|Kartik Chopra|A0198483L		|Development of RPA bots, development of price trend prediction logic, Development of certain modules that control the bot and manipulate the database, Report, Video|kartik@u.nus.edu|
+|Tarun Rajkumar|A0198522X		|Application Interface/UI; Algorithm Design; Data Engineering and Creation; Creation of RPA robots; Inital product testing; Report;	|e0402063@u.nus.edu|
 
 
 # SECTION 4: VIDEO INTRODUCTION

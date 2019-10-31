@@ -84,6 +84,9 @@ def push_price_data(price_df,conn):
             
         elif 'off' in price_df['price'][i].lower():
             price = price_df['price'][i].split('Off')[1]
+        
+        elif ',' in price_df['price'][i]:
+            price = price.replace(',','')
         else:
             price = int(price_df['price'][i])
         

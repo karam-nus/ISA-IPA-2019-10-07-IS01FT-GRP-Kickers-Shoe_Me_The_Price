@@ -29,8 +29,8 @@ SYSTEM DESIGN AND WORKING
 
 
 # SECTION 4: VIDEO INTRODUCTION
-<a href="https://youtu.be/xhr5-ozRhjk" target="_blank"><img src="https://img.youtube.com/vi/xhr5-ozRhjk/0.jpg" 
-alt="ITLMS" width="640" height="360" border="10" /></a>
+<a href="https://youtu.be/l4g0yPRzXD0" target="_blank"><img src="https://img.youtube.com/vi/l4g0yPRzXD0/2.jpg" 
+alt="SMTP" width="640" height="360" border="10" /></a>
 
 
 # SECTION 5: USER GUIDE

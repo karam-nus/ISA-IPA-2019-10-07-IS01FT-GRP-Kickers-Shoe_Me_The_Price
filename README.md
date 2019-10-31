@@ -89,6 +89,7 @@ Figure B: Successful submission of request
  Notes  - 
 - It is advisable to let the machine execute the flows unaltered, meaning not to perform actions on the system which is being used as the server for this application. Also, advisable to not alter the  chrome browser execution window.
 - Running the application from home folder is mandatory. Firstly, please reach the project’s home folder & only then run the application.
+- Please make sure that the entire path of the home folder has no spaces as TagUI has its limitations to not work if folder name has spaces.
 
 # SECTION 6: PROJECT REPORT
 [https://github.com/karamjotsinghmalik/ISA-IPA-2019-10-07-IS01FT-GRP-Kickers-Shoe_Me_The_Price/blob/master/data/Project_Report_STMP_TheKickers.pdf]
